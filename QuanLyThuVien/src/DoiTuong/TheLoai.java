@@ -14,7 +14,7 @@ public class TheLoai {
     private String tenTL;
 
     public TheLoai(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     public String getMaTL() {

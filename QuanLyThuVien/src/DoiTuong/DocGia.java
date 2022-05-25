@@ -5,11 +5,12 @@
  */
 package DoiTuong;
 
+import java.io.Serializable;
 /**
  *
  * @author Dell 7559
  */
-public class DocGia {
+public class DocGia implements Serializable {
     private String maDG;
     private String tenDG;
     private String gioiTinh;
@@ -67,3 +68,6 @@ public class DocGia {
         this.sdt = sdt;
     }
 }
+
+
+

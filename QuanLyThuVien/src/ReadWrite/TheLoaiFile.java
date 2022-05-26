@@ -26,13 +26,16 @@ public class TheLoaiFile {
     private static final String THELOAI_FILE_NAME = "theloai.txt";
 
     //Ghi file
+    @SuppressWarnings("unchecked")
     public void write(List<TheLoai> theLoaiList) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             fos = new FileOutputStream(new File(THELOAI_FILE_NAME));
             oos = new ObjectOutputStream(fos);
-            oos.writeObject(theLoaiList);
+            for (TheLoai theLoai : theLoaiList) {
+                oos.writeObject(theLoai);
+            }
         } catch(FileNotFoundException e){
             e.printStackTrace();
         } catch(IOException e){
@@ -44,6 +47,7 @@ public class TheLoaiFile {
     }
     
     //Doc file
+    @SuppressWarnings("unchecked")
     public List<TheLoai> read(){
         List<TheLoai> theLoaiList = new ArrayList<>();
         FileInputStream fis = null;
@@ -51,7 +55,10 @@ public class TheLoaiFile {
         try {
             fis = new FileInputStream(new File(THELOAI_FILE_NAME));
             ois = new ObjectInputStream(fis);
-            theLoaiList = (List<TheLoai>) ois.readObject();
+            while (fis.available() != 0) {
+                TheLoai theLoai = (TheLoai) ois.readObject();
+                theLoaiList.add(theLoai);
+            }
         } catch (FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e){

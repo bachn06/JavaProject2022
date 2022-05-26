@@ -26,13 +26,16 @@ public class SachFile {
     private static final String SACH_FILE_NAME = "sach.txt";
 
     //Ghi file
+    @SuppressWarnings("unchecked")
     public void write(List<Sach> sachList) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             fos = new FileOutputStream(new File(SACH_FILE_NAME));
             oos = new ObjectOutputStream(fos);
-            oos.writeObject(sachList);
+            for (Sach sach : sachList) {
+                oos.writeObject(sach);
+            }
         } catch(FileNotFoundException e){
             e.printStackTrace();
         } catch(IOException e){
@@ -44,6 +47,7 @@ public class SachFile {
     }
     
     //Doc file
+    @SuppressWarnings("unchecked")
     public List<Sach> read(){
         List<Sach> sachList = new ArrayList<>();
         FileInputStream fis = null;
@@ -51,7 +55,10 @@ public class SachFile {
         try {
             fis = new FileInputStream(new File(SACH_FILE_NAME));
             ois = new ObjectInputStream(fis);
-            sachList = (List<Sach>) ois.readObject();
+            while (fis.available() != 0) {
+                Sach sach = (Sach) ois.readObject();
+                sachList.add(sach);
+            }
         } catch (FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e){

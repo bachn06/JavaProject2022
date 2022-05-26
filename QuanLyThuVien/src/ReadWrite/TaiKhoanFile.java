@@ -24,15 +24,18 @@ import java.util.List;
  */
 public class TaiKhoanFile {
     private static final String TAIKHOAN_FILE_NAME = "taikhoan.txt";
-
+    
     //Ghi file
+    @SuppressWarnings("unchecked")
     public void write(List<TaiKhoan> taiKhoanList) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             fos = new FileOutputStream(new File(TAIKHOAN_FILE_NAME));
             oos = new ObjectOutputStream(fos);
-            oos.writeObject(taiKhoanList);
+            for (TaiKhoan taiKhoan : taiKhoanList) {
+                oos.writeObject(taiKhoan);
+            }
         } catch(FileNotFoundException e){
             e.printStackTrace();
         } catch(IOException e){
@@ -44,6 +47,7 @@ public class TaiKhoanFile {
     }
     
     //Doc file
+    @SuppressWarnings("unchecked")
     public List<TaiKhoan> read(){
         List<TaiKhoan> taiKhoanList = new ArrayList<>();
         FileInputStream fis = null;
@@ -51,7 +55,10 @@ public class TaiKhoanFile {
         try {
             fis = new FileInputStream(new File(TAIKHOAN_FILE_NAME));
             ois = new ObjectInputStream(fis);
-            taiKhoanList = (List<TaiKhoan>) ois.readObject();
+            while (fis.available() != 0) {
+                TaiKhoan taiKhoan = (TaiKhoan) ois.readObject();
+                taiKhoanList.add(taiKhoan);
+            }
         } catch (FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e){

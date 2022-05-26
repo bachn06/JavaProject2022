@@ -5,11 +5,14 @@
  */
 package DoiTuong;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dell 7559
  */
-public class Phieu {
+public class Phieu implements Serializable{
+    private static final long serialVersionUID = 1L;
     private String maP;
     private String maDG;
     private String maS;
@@ -86,4 +89,11 @@ public class Phieu {
         this.ngaymuon = ngaymuon;
         this.ngaytra = ngaytra;
     }
+
+    @Override
+    public String toString() {
+        return maP;
+    }
+    
+    
 }

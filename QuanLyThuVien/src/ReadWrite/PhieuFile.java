@@ -6,6 +6,7 @@
 package ReadWrite;
 
 import DoiTuong.Phieu;
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,65 +24,75 @@ import java.util.List;
  * @author Dell 7559
  */
 public class PhieuFile {
+
     private static final String PHIEU_FILE_NAME = "phieu.txt";
 
     //Ghi file
+    @SuppressWarnings("unchecked")
     public void write(List<Phieu> phieuList) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             fos = new FileOutputStream(new File(PHIEU_FILE_NAME));
             oos = new ObjectOutputStream(fos);
-            oos.writeObject(phieuList);
-        } catch(FileNotFoundException e){
+            for (Phieu phieu : phieuList) {
+                oos.writeObject(phieu);
+            }
+
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch(IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             closeStream(fos);
             closeStream(oos);
         }
     }
-    
+
     //Doc file
-    public List<Phieu> read(){
+    @SuppressWarnings("unchecked")
+    public List<Phieu> read() {
         List<Phieu> phieuList = new ArrayList<>();
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
             fis = new FileInputStream(new File(PHIEU_FILE_NAME));
             ois = new ObjectInputStream(fis);
-            phieuList = (List<Phieu>) ois.readObject();
-        } catch (FileNotFoundException e){
+            while (fis.available() != 0) {
+                Phieu phieu = (Phieu) ois.readObject();
+                phieuList.add(phieu);
+            }
+
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (IOException e){
+        } catch (EOFException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e){
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
-        } finally{
+        } finally {
             closeStream(fis);
             closeStream(ois);
         }
         return phieuList;
     }
-    
+
     //Close InputStream
-    private void closeStream(InputStream is){
-        if(is != null){
+    private void closeStream(InputStream is) {
+        if (is != null) {
             try {
                 is.close();
-            } catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
-    
+
     //Close OutputStream
-    private void closeStream(OutputStream os){
-        if(os != null){
+    private void closeStream(OutputStream os) {
+        if (os != null) {
             try {
                 os.close();
-            } catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }

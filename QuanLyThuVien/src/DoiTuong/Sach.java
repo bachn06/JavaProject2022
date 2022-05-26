@@ -5,11 +5,13 @@
  */
 package DoiTuong;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dell 7559
  */
-public class Sach {
+public class Sach implements Serializable{
     private String maS;
     private String tenS;
     private String maTL;

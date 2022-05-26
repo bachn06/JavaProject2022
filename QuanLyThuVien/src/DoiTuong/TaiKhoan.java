@@ -5,11 +5,13 @@
  */
 package DoiTuong;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dell 7559
  */
-public class TaiKhoan {
+public class TaiKhoan implements Serializable{
     private String tenTK;
     private String pass;
     private String loaiTK;

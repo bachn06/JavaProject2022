@@ -5,11 +5,13 @@
  */
 package DoiTuong;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dell 7559
  */
-public class TheLoai {
+public class TheLoai implements Serializable{
     private String maTL;
     private String tenTL;
 

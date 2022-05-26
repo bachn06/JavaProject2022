@@ -5,11 +5,13 @@
  */
 package DoiTuong;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dell 7559
  */
-public class Phieu {
+public class Phieu implements Serializable{
     private String maP;
     private String maDG;
     private String maS;

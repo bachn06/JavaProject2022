@@ -38,7 +38,6 @@ public class PhieuFile {
             for (Phieu phieu : phieuList) {
                 oos.writeObject(phieu);
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -48,7 +47,7 @@ public class PhieuFile {
             closeStream(oos);
         }
     }
-
+    
     //Doc file
     @SuppressWarnings("unchecked")
     public List<Phieu> read() {
@@ -62,7 +61,6 @@ public class PhieuFile {
                 Phieu phieu = (Phieu) ois.readObject();
                 phieuList.add(phieu);
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (EOFException e) {

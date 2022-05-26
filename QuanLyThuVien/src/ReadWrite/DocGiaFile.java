@@ -26,13 +26,16 @@ public class DocGiaFile {
     private static final String DOCGIA_FILE_NAME = "docgia.txt";
 
     //Ghi file
+    @SuppressWarnings("unchecked")
     public void write(List<DocGia> docGiaList) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
             fos = new FileOutputStream(new File(DOCGIA_FILE_NAME));
             oos = new ObjectOutputStream(fos);
-            oos.writeObject(docGiaList);
+            for (DocGia docGia : docGiaList) {
+                oos.writeObject(docGia);
+            }
         } catch(FileNotFoundException e){
             e.printStackTrace();
         } catch(IOException e){
@@ -44,6 +47,7 @@ public class DocGiaFile {
     }
     
     //Doc file
+    @SuppressWarnings("unchecked")
     public List<DocGia> read(){
         List<DocGia> docGiaList = new ArrayList<>();
         FileInputStream fis = null;
@@ -51,7 +55,10 @@ public class DocGiaFile {
         try {
             fis = new FileInputStream(new File(DOCGIA_FILE_NAME));
             ois = new ObjectInputStream(fis);
-            docGiaList = (List<DocGia>) ois.readObject();
+            while (fis.available() != 0) {
+                DocGia docGia = (DocGia) ois.readObject();
+                docGiaList.add(docGia);
+            }
         } catch (FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e){

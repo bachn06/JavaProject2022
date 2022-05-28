@@ -11,6 +11,7 @@ import java.io.Serializable;
  * @author Dell 7559
  */
 public class DocGia implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String maDG;
     private String tenDG;
     private String gioiTinh;

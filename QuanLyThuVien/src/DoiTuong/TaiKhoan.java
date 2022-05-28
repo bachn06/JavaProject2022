@@ -12,9 +12,10 @@ import java.io.Serializable;
  * @author Dell 7559
  */
 public class TaiKhoan implements Serializable{
+    private static final long serialVersionUID = 1L;
     private String tenTK;
     private String pass;
-    private String loaiTK;
+    //private String loaiTK;
 
     public String getTenTK() {
         return tenTK;
@@ -32,24 +33,20 @@ public class TaiKhoan implements Serializable{
         this.pass = pass;
     }
 
-    public String getLoaiTK() {
-        return loaiTK;
-    }
+//    public String getLoaiTK() {
+//        return loaiTK;
+//    }
 
-    public void setLoaiTK(String loaiTK) {
-        this.loaiTK = loaiTK;
-    }
+//    public void setLoaiTK(String loaiTK) {
+//        this.loaiTK = loaiTK;
+//    }
 
     public TaiKhoan() {
     }
 
-    public TaiKhoan(String tenTK, String pass, String loaiTK) {
+    public TaiKhoan(String tenTK, String pass) {
         this.tenTK = tenTK;
         this.pass = pass;
-        this.loaiTK = loaiTK;
-    }
-    @Override
-    public String toString(){
-        return "TenTK: \t" + tenTK + "password: \t" + pass + "LoaiTK: \t" + loaiTK;
+        //this.loaiTK = loaiTK;
     }
 }

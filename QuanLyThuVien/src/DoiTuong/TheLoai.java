@@ -12,6 +12,7 @@ import java.io.Serializable;
  * @author Dell 7559
  */
 public class TheLoai implements Serializable{
+    private static final long serialVersionUID = 1L;
     private String maTL;
     private String tenTL;
 

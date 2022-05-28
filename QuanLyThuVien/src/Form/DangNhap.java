@@ -5,6 +5,11 @@
  */
 package Form;
 
+import DoiTuong.TaiKhoan;
+import ReadWrite.TaiKhoanFile;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Dell 7559
@@ -14,8 +19,27 @@ public class DangNhap extends javax.swing.JFrame {
     /**
      * Creates new form DangNhap
      */
+    TaiKhoanFile file = new TaiKhoanFile();
+    
+    List<TaiKhoan> list = file.read();
+    
     public DangNhap() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        TaiKhoan tk = new TaiKhoan("admin", "a1234");
+        TaiKhoan tk1 = new TaiKhoan("admin2", "123456");
+        list.add(tk);
+        list.add(tk1);
+        file.write(list);
+    }
+    
+    public boolean checklogin(){
+        for (TaiKhoan s : list){
+            if(txtUsername.getText().equalsIgnoreCase(s.getTenTK())&&txtPassword.getText().equalsIgnoreCase(s.getPass())){
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -32,8 +56,8 @@ public class DangNhap extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
+        cancelButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,17 +67,17 @@ public class DangNhap extends javax.swing.JFrame {
 
         jLabel3.setText("Mật khẩu:");
 
-        jButton1.setText("Đăng nhập");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        loginButton.setText("Đăng nhập");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                loginButtonActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Huỷ bỏ");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cancelButton.setText("Huỷ bỏ");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cancelButtonActionPerformed(evt);
             }
         });
 
@@ -77,9 +101,9 @@ public class DangNhap extends javax.swing.JFrame {
                             .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(164, 164, 164)
-                        .addComponent(jButton1)
+                        .addComponent(loginButton)
                         .addGap(58, 58, 58)
-                        .addComponent(jButton2)))
+                        .addComponent(cancelButton)))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -97,23 +121,31 @@ public class DangNhap extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(loginButton)
+                    .addComponent(cancelButton))
                 .addContainerGap(123, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        // TODO add your handling code here
+        if(checklogin()){
+            JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thành công");
+                new TrangChu().setVisible(true);
+                dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Sai tên tài khoản hoặc mật khảu");
+        }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_loginButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,11 +183,11 @@ public class DangNhap extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton loginButton;
     private javax.swing.JTextField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables

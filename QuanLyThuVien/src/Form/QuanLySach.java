@@ -104,6 +104,10 @@ public class QuanLySach extends javax.swing.JFrame {
         btnTimKiem = new javax.swing.JButton();
         btnThoat = new javax.swing.JButton();
 
+        jDialog1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jDialog1.setModal(true);
+        jDialog1.setSize(new java.awt.Dimension(450, 450));
+
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 255));
         jLabel3.setText("THÊM SÁCH");
@@ -124,12 +128,6 @@ public class QuanLySach extends javax.swing.JFrame {
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThemActionPerformed(evt);
-            }
-        });
-
-        txtTenS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTenSActionPerformed(evt);
             }
         });
 
@@ -171,7 +169,7 @@ public class QuanLySach extends javax.swing.JFrame {
                     .addGroup(jDialog1Layout.createSequentialGroup()
                         .addGap(147, 147, 147)
                         .addComponent(btnThem)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(125, Short.MAX_VALUE))
         );
         jDialog1Layout.setVerticalGroup(
             jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,8 +202,10 @@ public class QuanLySach extends javax.swing.JFrame {
                     .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnThem)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
+
+        jDialog2.setSize(new java.awt.Dimension(450, 450));
 
         jLabel10.setText("Mã sách :");
 
@@ -507,10 +507,6 @@ public class QuanLySach extends javax.swing.JFrame {
         showResult();
         jDialog2.setVisible(false);
     }//GEN-LAST:event_btnCapNhatActionPerformed
-
-    private void txtTenSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenSActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTenSActionPerformed
   public void setDetaiSach(Sach s){
         txtMaS1.setEditable(false);
         txtMaS1.setText(s.getMaS());

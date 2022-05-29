@@ -657,6 +657,7 @@ public class QuanLySach extends javax.swing.JFrame {
             try {
                 list.add(s);
                 file.write(list);
+//                Hahahaha
                 cancelValues();
             } catch (Exception e) {
                 System.out.println("Thêm thất bại.");

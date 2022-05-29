@@ -393,6 +393,7 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
                 list.set(indexEdit, a);
                 file.write(list);
                 showResult();
+                cancelValues();
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Mã phiếu đã tồn tại!");
             }

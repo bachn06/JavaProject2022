@@ -726,6 +726,7 @@ public class QuanLySach extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        txtSearch.setText("");
         jDialog4.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
   public void setDetaiSach(Sach s){

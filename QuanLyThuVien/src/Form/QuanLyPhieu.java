@@ -58,6 +58,7 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
         for (Phieu p : list) {
             if (p.getMaP().equals(txtMaP.getText())) {
                 return false;
+                // tststs
             }
         }
         return true;

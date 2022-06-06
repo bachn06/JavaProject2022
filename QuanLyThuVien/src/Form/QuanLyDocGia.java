@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.io.*;
 
 /**
  *
@@ -60,14 +61,18 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         return true;
     }
     
-    public void validateThongTinDG(String mdg, String tdg, String dc, String sdt) throws Exception {
-        if(mdg.equals("") || tdg.equals("") || dc.equals("")|| sdt.equals("")) {
-            throw Exception("Không được để trống thông tin!");
+    public String validate1(String value) {
+        if(value.equals("")) {
+           return "Không được để trống thông tin";
         }
-        String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
-        if(!sdt.matches(reg)) {
-            throw Exception("Số điện thoại không đúng định dạng!");
+        return "";
+    }
+    public String validate2(String value) throws Exception {
+        String reg = "/^[0-9]{9}+$/";
+        if(!value.matches(reg)) {
+            return "Số điện thoại chỉ chứa số và ít nhất 9 kí tự";
         }
+        return "";
     }
      public void showResult() {
         model.setRowCount(0);
@@ -153,6 +158,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         txtSDTDG2 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         btnXacNhanSuaDocGia = new javax.swing.JButton();
+        errLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbDocGia = new javax.swing.JTable();
@@ -347,7 +353,6 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                 .addContainerGap(110, Short.MAX_VALUE))
         );
 
-<<<<<<< HEAD
         jDialogSua.setLocation(new java.awt.Point(500, 100));
         jDialogSua.setSize(new java.awt.Dimension(280, 400));
 
@@ -370,6 +375,13 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         jLabel19.setText("Số điện thoại:");
 
         btnXacNhanSuaDocGia.setText("Sửa");
+        btnXacNhanSuaDocGia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXacNhanSuaDocGiaActionPerformed(evt);
+            }
+        });
+
+        errLabel.setForeground(new java.awt.Color(255, 51, 51));
 
         javax.swing.GroupLayout jDialogSuaLayout = new javax.swing.GroupLayout(jDialogSua.getContentPane());
         jDialogSua.getContentPane().setLayout(jDialogSuaLayout);
@@ -377,7 +389,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
             jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialogSuaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jDialogSuaLayout.createSequentialGroup()
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -404,7 +416,8 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtSDTDG2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnXacNhanSuaDocGia, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnXacNhanSuaDocGia, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(errLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         jDialogSuaLayout.setVerticalGroup(
@@ -433,16 +446,14 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                 .addGroup(jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(txtSDTDG2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(14, 14, 14)
+                .addComponent(errLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnXacNhanSuaDocGia)
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-=======
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(560, 340));
->>>>>>> 47abfddd1a5a7862c7ed5d66c3fa4d13b77ea872
         setSize(new java.awt.Dimension(550, 400));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -612,16 +623,41 @@ public class QuanLyDocGia extends javax.swing.JFrame {
 
     private void btnSuaDGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaDGActionPerformed
         // TODO add your handling code here:
-        int indexRemove = tbDocGia.getSelectedRow();
-        if (indexRemove == -1) {
+        int indexChange = tbDocGia.getSelectedRow();
+        if (indexChange == -1) {
             JOptionPane.showMessageDialog(rootPane, "Bạn cần chọn 1 hàng để sửa!!");
         } else if (list.isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "Bảng trống không có độc giả để sửa!!");
         } else {
+            indexEdit = indexChange;
             jDialogSua.setVisible(true);
         }
         
     }//GEN-LAST:event_btnSuaDGActionPerformed
+
+    private void btnXacNhanSuaDocGiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanSuaDocGiaActionPerformed
+        // TODO add your handling code here:
+        try {
+            String mdg = txtMDG2.getText().trim();
+            String tdg = txtTDG2.getText().trim();
+            String diaChi = txtTDG2.getText().trim();
+            String gt;
+            if(rbNam2.isSelected()) {
+                gt = "Nam";
+            } else {
+                gt = "Nữ";
+            }
+            String sdt = txtSDTDG2.getText().trim();
+
+            validateThongTinDG(mdg, tdg, diaChi , sdt);
+            errLabel.setText("");
+            
+            
+        } catch(Exception exp) {
+            errLabel.setText(exp.getMessage());
+        }
+        
+    }//GEN-LAST:event_btnXacNhanSuaDocGiaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -667,6 +703,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     private javax.swing.JButton btnXacNhanSuaDocGia;
     private javax.swing.JButton btnXoaDG;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel errLabel;
     private javax.swing.JDialog jDialogChiTiet;
     private javax.swing.JDialog jDialogSua;
     private javax.swing.JDialog jDialogThem;
@@ -711,8 +748,5 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     private javax.swing.JTextField txtTDG2;
     // End of variables declaration//GEN-END:variables
 
-    private Exception Exception(String không_được_để_trống_thông_tin) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
 }

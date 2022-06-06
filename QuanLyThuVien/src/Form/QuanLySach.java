@@ -33,8 +33,7 @@ public class QuanLySach extends javax.swing.JFrame {
         model = (DefaultTableModel) tblSach.getModel();
         showResult();
     }
-<<<<<<< HEAD
-=======
+
     public Sach getDetailSach() {
         Sach s = new Sach();
         if (!txtMaS.getText().isEmpty()) {
@@ -49,7 +48,7 @@ public class QuanLySach extends javax.swing.JFrame {
         s.setGia(Float.parseFloat(txtGiaBan.getText()));
         return s;
     }
->>>>>>> 57da459d7e3af78b4d5af954f77ea8fe5f91d312
+
    
     public boolean checkmhd() {
         for (Sach s : list) {

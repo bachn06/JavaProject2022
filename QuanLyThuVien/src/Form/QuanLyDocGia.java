@@ -649,7 +649,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
             }
             String sdt = txtSDTDG2.getText().trim();
 
-            validateThongTinDG(mdg, tdg, diaChi , sdt);
+
             errLabel.setText("");
             
             

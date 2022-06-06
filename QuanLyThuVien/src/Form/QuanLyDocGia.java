@@ -324,10 +324,13 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(560, 340));
+        setSize(new java.awt.Dimension(550, 400));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("DANH SÁCH ĐỘC GIẢ");
 
+        tbDocGia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tbDocGia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -346,6 +349,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbDocGia);
 
+        btnChiTietDG.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnChiTietDG.setText("Chi tiết");
         btnChiTietDG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -353,6 +357,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
             }
         });
 
+        btnXoaDG.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnXoaDG.setText("Xóa");
         btnXoaDG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -360,6 +365,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
             }
         });
 
+        btnDongDG.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnDongDG.setText("Đóng");
         btnDongDG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,6 +373,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
             }
         });
 
+        btnThemDG.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnThemDG.setText("Thêm");
         btnThemDG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -402,7 +409,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnChiTietDG)
                     .addComponent(btnXoaDG)

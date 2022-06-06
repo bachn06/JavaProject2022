@@ -35,13 +35,16 @@ public class QuanLySach extends javax.swing.JFrame {
     }
    public Sach getDetailSach() {
         Sach s = new Sach();
-        s.setMaS(txtMaS.getText().trim());
+        if (!txtMaS.getText().isEmpty()) {
+            s.setMaS(txtMaS.getText().trim());
+        } else {
+            // do something
+        }
         s.setTenS(txtTenS.getText().trim());
-        s.setMaTL(txtMaTL.getText().trim());
+        s.setTenTL(txtTenTL.getText().trim());
         s.setTenTG(txtTenTG.getText().trim());
         s.setsL(Integer.parseInt(txtSL.getText()));
         s.setGia(Float.parseFloat(txtGiaBan.getText()));
-
         return s;
     }
    
@@ -73,7 +76,7 @@ public class QuanLySach extends javax.swing.JFrame {
         btnThem = new javax.swing.JButton();
         txtMaS = new javax.swing.JTextField();
         txtTenS = new javax.swing.JTextField();
-        txtMaTL = new javax.swing.JTextField();
+        txtTenTL = new javax.swing.JTextField();
         txtTenTG = new javax.swing.JTextField();
         txtSL = new javax.swing.JTextField();
         txtGiaBan = new javax.swing.JTextField();
@@ -92,7 +95,7 @@ public class QuanLySach extends javax.swing.JFrame {
         btnCapNhat = new javax.swing.JButton();
         txtMaS1 = new javax.swing.JTextField();
         txtTenS1 = new javax.swing.JTextField();
-        txtMaTL1 = new javax.swing.JTextField();
+        txtTenTL1 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jDialog3 = new javax.swing.JDialog();
@@ -105,7 +108,7 @@ public class QuanLySach extends javax.swing.JFrame {
         txtTenTG2 = new javax.swing.JTextField();
         txtTenS2 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        txtMaTL2 = new javax.swing.JTextField();
+        txtTenTL2 = new javax.swing.JTextField();
         txtGiaBan2 = new javax.swing.JTextField();
         txtSL2 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
@@ -137,7 +140,7 @@ public class QuanLySach extends javax.swing.JFrame {
         jLabel4.setText("Mã sách :");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel5.setText("Mã thể loại :");
+        jLabel5.setText("Tên thể loại :");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Tên sách :");
@@ -163,7 +166,7 @@ public class QuanLySach extends javax.swing.JFrame {
 
         txtTenS.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        txtMaTL.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTenTL.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         txtTenTG.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -214,7 +217,7 @@ public class QuanLySach extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtTenTG, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMaTL, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTenTL, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtSL, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
@@ -243,7 +246,7 @@ public class QuanLySach extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtMaTL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTenTL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -263,7 +266,6 @@ public class QuanLySach extends javax.swing.JFrame {
                 .addGap(34, 34, 34))
         );
 
-        jDialog2.setPreferredSize(new java.awt.Dimension(460, 500));
         jDialog2.setSize(new java.awt.Dimension(460, 600));
 
         txtTenTG1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -274,7 +276,7 @@ public class QuanLySach extends javax.swing.JFrame {
         txtSL1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setText("Mã thể loại :");
+        jLabel11.setText("Tên thể loại :");
 
         txtGiaBan1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -302,7 +304,7 @@ public class QuanLySach extends javax.swing.JFrame {
 
         txtTenS1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        txtMaTL1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTenTL1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel16.setText("SỬA SÁCH");
@@ -321,7 +323,7 @@ public class QuanLySach extends javax.swing.JFrame {
                     .addGroup(jDialog2Layout.createSequentialGroup()
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
-                        .addComponent(txtMaTL1))
+                        .addComponent(txtTenTL1))
                     .addGroup(jDialog2Layout.createSequentialGroup()
                         .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
@@ -371,7 +373,7 @@ public class QuanLySach extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(txtMaTL1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(txtTenTL1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
                 .addGap(40, 40, 40)
                 .addGroup(jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -389,14 +391,13 @@ public class QuanLySach extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jDialog3.setPreferredSize(new java.awt.Dimension(500, 500));
         jDialog3.setSize(new java.awt.Dimension(520, 525));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setText("Tên tác giả :");
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel23.setText("Mã thể loại :");
+        jLabel23.setText("Tên thể loại :");
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setText("Số lượng :");
@@ -426,7 +427,7 @@ public class QuanLySach extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setText("Mã sách :");
 
-        txtMaTL2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTenTL2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         txtGiaBan2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -459,23 +460,22 @@ public class QuanLySach extends javax.swing.JFrame {
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                                 .addComponent(txtTenS2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog3Layout.createSequentialGroup()
-                                    .addComponent(jLabel20)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtGiaBan2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jDialog3Layout.createSequentialGroup()
-                                    .addComponent(jLabel19)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtSL2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jDialog3Layout.createSequentialGroup()
-                                    .addComponent(jLabel23)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtMaTL2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jDialog3Layout.createSequentialGroup()
-                                    .addComponent(jLabel18)
-                                    .addGap(22, 22, 22)
-                                    .addComponent(txtTenTG2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog3Layout.createSequentialGroup()
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtGiaBan2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDialog3Layout.createSequentialGroup()
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtSL2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDialog3Layout.createSequentialGroup()
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtTenTL2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jDialog3Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(22, 22, 22)
+                                .addComponent(txtTenTG2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jDialog3Layout.createSequentialGroup()
                         .addGap(205, 205, 205)
                         .addComponent(btnDong, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -497,7 +497,7 @@ public class QuanLySach extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23)
-                    .addComponent(txtMaTL2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTenTL2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(jDialog3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
@@ -592,7 +592,7 @@ public class QuanLySach extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã sách", "Tên sách", "Mã thể loại", "Tác giả", "Giá tiền", "Số lượng"
+                "Mã sách", "Tên sách", "Tên thể loại", "Tác giả", "Giá tiền", "Số lượng"
             }
         ));
         tblSach.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -655,10 +655,6 @@ public class QuanLySach extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(316, 316, 316)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
@@ -675,6 +671,10 @@ public class QuanLySach extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(378, 378, 378)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -773,7 +773,7 @@ public class QuanLySach extends javax.swing.JFrame {
         Sach s = new Sach();
         s.setMaS(txtMaS1.getText().trim());
         s.setTenS(txtTenS1.getText().trim());
-        s.setMaTL(txtMaTL1.getText().trim());
+        s.setTenTL(txtTenTL1.getText().trim());
         s.setTenTG(txtTenTG1.getText().trim());
         s.setsL(Integer.parseInt(txtSL1.getText()));
         s.setGia(Float.parseFloat(txtGiaBan1.getText()));
@@ -845,7 +845,7 @@ public class QuanLySach extends javax.swing.JFrame {
         txtMaS1.setEditable(false);
         txtMaS1.setText(s.getMaS());
         txtTenS1.setText(s.getTenS());
-        txtMaTL1.setText(s.getMaTL());
+        txtTenTL1.setText(s.getTenTL());
         txtTenTG1.setText(s.getTenTG());
         txtSL1.setText(s.getsL() + "");
         txtGiaBan1.setText(s.getGia() + "");
@@ -854,14 +854,14 @@ public class QuanLySach extends javax.swing.JFrame {
   public void setDetaiSach2(Sach s){
         txtMaS2.setEditable(false);
         txtTenS2.setEnabled(false);
-        txtMaTL2.setEnabled(false);
+        txtTenTL2.setEnabled(false);
         txtTenTG2.setEnabled(false);
         txtSL2.setEnabled(false);
         txtGiaBan2.setEnabled(false);
         
         txtMaS2.setText(s.getMaS());
         txtTenS2.setText(s.getTenS());
-        txtMaTL2.setText(s.getMaTL());
+        txtTenTL2.setText(s.getTenTL());
         txtTenTG2.setText(s.getTenTG());
         txtSL2.setText(s.getsL() + "");
         txtGiaBan2.setText(s.getGia() + "");
@@ -869,7 +869,7 @@ public class QuanLySach extends javax.swing.JFrame {
     public void setEditData(Sach s) {
         txtMaS.setText(s.getMaS());
         txtTenS.setText(s.getTenS());
-        txtMaTL.setText(s.getMaTL());
+        txtTenTL.setText(s.getTenTL());
         txtTenTG.setText(s.getTenTG() + "");
         txtSL.setText(s.getsL() + "");
         txtGiaBan.setText(s.getGia() + "");
@@ -878,7 +878,7 @@ public class QuanLySach extends javax.swing.JFrame {
  public void cancelValues() {
         txtMaS.setText("");
         txtTenS.setText("");
-        txtMaTL.setText("");
+        txtTenTL.setText("");
         txtTenTG.setText("");
         txtSL.setText("");
         txtGiaBan.setText("");
@@ -888,7 +888,7 @@ public class QuanLySach extends javax.swing.JFrame {
         model.setRowCount(0);
         for (Sach s : list) {
             model.addRow(new Object[]{
-                s.getMaS(), s.getTenS(), s.getMaTL(), s.getTenTG(), s.getsL(), s.getGia()
+                s.getMaS(), s.getTenS(), s.getTenTL(), s.getTenTG(), s.getsL(), s.getGia()
             });
         }
     }
@@ -897,7 +897,7 @@ public class QuanLySach extends javax.swing.JFrame {
         model.setRowCount(0);
         for (Sach s : listSearch) {
             model.addRow(new Object[]{
-                s.getMaS(), s.getTenS(), s.getMaTL(), s.getTenTG(), s.getsL(), s.getGia()
+                s.getMaS(), s.getTenS(), s.getTenTL(), s.getTenTG(), s.getsL(), s.getGia()
             });
         }
     }
@@ -986,9 +986,6 @@ public class QuanLySach extends javax.swing.JFrame {
     private javax.swing.JTextField txtMaS;
     private javax.swing.JTextField txtMaS1;
     private javax.swing.JTextField txtMaS2;
-    private javax.swing.JTextField txtMaTL;
-    private javax.swing.JTextField txtMaTL1;
-    private javax.swing.JTextField txtMaTL2;
     private javax.swing.JTextField txtSL;
     private javax.swing.JTextField txtSL1;
     private javax.swing.JTextField txtSL2;
@@ -999,6 +996,9 @@ public class QuanLySach extends javax.swing.JFrame {
     private javax.swing.JTextField txtTenTG;
     private javax.swing.JTextField txtTenTG1;
     private javax.swing.JTextField txtTenTG2;
+    private javax.swing.JTextField txtTenTL;
+    private javax.swing.JTextField txtTenTL1;
+    private javax.swing.JTextField txtTenTL2;
     private javax.swing.JButton txtThem;
     // End of variables declaration//GEN-END:variables
 }

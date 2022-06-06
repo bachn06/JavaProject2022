@@ -15,7 +15,7 @@ public class Sach implements Serializable{
     private static final long serialVersionUID = 1L;
     private String maS;
     private String tenS;
-    private String maTL;
+    private String tenTL;
     private String tenTG;
     private int sL;
     private float gia;
@@ -36,12 +36,12 @@ public class Sach implements Serializable{
         this.tenS = tenS;
     }
 
-    public String getMaTL() {
-        return maTL;
+    public String getTenTL() {
+        return tenTL;
     }
 
-    public void setMaTL(String maTL) {
-        this.maTL = maTL;
+    public void setTenTL(String tenTL) {
+        this.tenTL = tenTL;
     }
 
     public String getTenTG() {
@@ -74,7 +74,7 @@ public class Sach implements Serializable{
     public Sach(String maS, String tenS, String maTL, String tenTG, int sL, float gia) {
         this.maS = maS;
         this.tenS = tenS;
-        this.maTL = maTL;
+        this.tenTL = tenTL;
         this.tenTG = tenTG;
         this.sL = sL;
         this.gia = gia;

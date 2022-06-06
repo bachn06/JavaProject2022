@@ -343,6 +343,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                 .addContainerGap(110, Short.MAX_VALUE))
         );
 
+<<<<<<< HEAD
         jDialogSua.setLocation(new java.awt.Point(500, 100));
         jDialogSua.setSize(new java.awt.Dimension(280, 400));
 
@@ -434,6 +435,10 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+=======
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(560, 340));
+>>>>>>> 47abfddd1a5a7862c7ed5d66c3fa4d13b77ea872
         setSize(new java.awt.Dimension(550, 400));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

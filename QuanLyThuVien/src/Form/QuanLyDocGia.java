@@ -62,7 +62,11 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     
     public void validateThongTinDG(String mdg, String tdg, String dc, String sdt) throws Exception {
         if(mdg.equals("") || tdg.equals("") || dc.equals("")|| sdt.equals("")) {
-            throw Exception("Không được ")
+            throw Exception("Không được để trống thông tin!");
+        }
+        String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
+        if(!sdt.matches(reg)) {
+            throw Exception("Số điện thoại không đúng định dạng!");
         }
     }
      public void showResult() {
@@ -707,7 +711,8 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     private javax.swing.JTextField txtTDG2;
     // End of variables declaration//GEN-END:variables
 
-    private Exception SyntaxException(String không_được_) {
+    private Exception Exception(String không_được_để_trống_thông_tin) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 }

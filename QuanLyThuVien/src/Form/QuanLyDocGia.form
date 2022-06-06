@@ -474,14 +474,7 @@
     </Container>
   </NonVisualComponents>
   <Properties>
-<<<<<<< HEAD
     <Property name="defaultCloseOperation" type="int" value="3"/>
-=======
-    <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[560, 340]"/>
-    </Property>
->>>>>>> 47abfddd1a5a7862c7ed5d66c3fa4d13b77ea872
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[550, 400]"/>
     </Property>

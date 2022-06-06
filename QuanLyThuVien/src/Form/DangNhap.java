@@ -159,8 +159,6 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here
-        String role = roleBox.getSelectedItem().toString();
-        if(role.equalsIgnoreCase("admin")){
             if(checklogin()){
                 JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thành công");
                 new TrangChu().setVisible(true);
@@ -169,17 +167,6 @@ public class DangNhap extends javax.swing.JFrame {
             else{
                 JOptionPane.showMessageDialog(this, "Sai tên tài khoản hoặc mật khảu");
             }
-        }
-        else if(role.equalsIgnoreCase("user")){
-            if(checklogin()){
-                JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thành công");
-                new TrangChuUser().setVisible(true);
-                dispose();
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "Sai tên tài khoản hoặc mật khảu");
-            }
-        }
         
         
     }//GEN-LAST:event_loginButtonActionPerformed

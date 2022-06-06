@@ -26,22 +26,27 @@ public class DangNhap extends javax.swing.JFrame {
     public DangNhap() {
         initComponents();
         this.setLocationRelativeTo(null);
-        TaiKhoan tk = new TaiKhoan("admin", "a1234");
-        TaiKhoan tk1 = new TaiKhoan("admin2", "123456");
-        list.add(tk);
-        list.add(tk1);
-        file.write(list);
+        try {
+            if (list.isEmpty()) {
+                TaiKhoan tk1 = new TaiKhoan("admin", "admin", "admin");
+                TaiKhoan tk2 = new TaiKhoan("user", "user", "user");
+                list.add(tk1);
+                list.add(tk2);
+                file.write(list);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Lỗi đọc file");
+        }
     }
     
     public boolean checklogin(){
         for (TaiKhoan s : list){
-            if(txtUsername.getText().equalsIgnoreCase(s.getTenTK())&&txtPassword.getText().equalsIgnoreCase(s.getPass())){
+            if(txtUsername.getText().equalsIgnoreCase(s.getTenTK())&&txtPassword.getText().equalsIgnoreCase(s.getPass())&&roleBox.getSelectedItem().toString().equalsIgnoreCase(s.getLoaiTK())){
                 return true;
             }
         }
         return false;
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,6 +63,8 @@ public class DangNhap extends javax.swing.JFrame {
         loginButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         txtPassword = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
+        roleBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +97,11 @@ public class DangNhap extends javax.swing.JFrame {
 
         txtPassword.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("Role:");
+
+        roleBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "User" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,11 +121,13 @@ public class DangNhap extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
                                 .addGap(89, 89, 89)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))))))
+                                    .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                    .addComponent(roleBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -129,11 +143,15 @@ public class DangNhap extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(roleBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
         );
 
         pack();
@@ -141,14 +159,28 @@ public class DangNhap extends javax.swing.JFrame {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here
-        if(checklogin()){
-            JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thành công");
+        String role = roleBox.getSelectedItem().toString();
+        if(role.equalsIgnoreCase("admin")){
+            if(checklogin()){
+                JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thành công");
                 new TrangChu().setVisible(true);
                 dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Sai tên tài khoản hoặc mật khảu");
+            }
         }
-        else{
-            JOptionPane.showMessageDialog(this, "Sai tên tài khoản hoặc mật khảu");
+        else if(role.equalsIgnoreCase("user")){
+            if(checklogin()){
+                JOptionPane.showMessageDialog(this, "Bạn đã đăng nhập thành công");
+                new TrangChuUser().setVisible(true);
+                dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Sai tên tài khoản hoặc mật khảu");
+            }
         }
+        
         
     }//GEN-LAST:event_loginButtonActionPerformed
 
@@ -197,7 +229,9 @@ public class DangNhap extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JButton loginButton;
+    private javax.swing.JComboBox<String> roleBox;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables

@@ -15,7 +15,7 @@ public class TaiKhoan implements Serializable{
     private static final long serialVersionUID = 1L;
     private String tenTK;
     private String pass;
-    //private String loaiTK;
+    private String loaiTK;
 
     public String getTenTK() {
         return tenTK;
@@ -33,20 +33,20 @@ public class TaiKhoan implements Serializable{
         this.pass = pass;
     }
 
-//    public String getLoaiTK() {
-//        return loaiTK;
-//    }
+    public String getLoaiTK() {
+        return loaiTK;
+    }
 
-//    public void setLoaiTK(String loaiTK) {
-//        this.loaiTK = loaiTK;
-//    }
+    public void setLoaiTK(String loaiTK) {
+        this.loaiTK = loaiTK;
+    }
 
     public TaiKhoan() {
     }
 
-    public TaiKhoan(String tenTK, String pass) {
+    public TaiKhoan(String tenTK, String pass, String loaiTK) {
         this.tenTK = tenTK;
         this.pass = pass;
-        //this.loaiTK = loaiTK;
+        this.loaiTK = loaiTK;
     }
 }

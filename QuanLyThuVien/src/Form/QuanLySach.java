@@ -33,6 +33,23 @@ public class QuanLySach extends javax.swing.JFrame {
         model = (DefaultTableModel) tblSach.getModel();
         showResult();
     }
+<<<<<<< HEAD
+=======
+    public Sach getDetailSach() {
+        Sach s = new Sach();
+        if (!txtMaS.getText().isEmpty()) {
+            s.setMaS(txtMaS.getText().trim());
+        } else {
+            // do something
+        }
+        s.setTenS(txtTenS.getText().trim());
+        s.setTenTL(txtTenTL.getText().trim());
+        s.setTenTG(txtTenTG.getText().trim());
+        s.setsL(Integer.parseInt(txtSL.getText()));
+        s.setGia(Float.parseFloat(txtGiaBan.getText()));
+        return s;
+    }
+>>>>>>> 57da459d7e3af78b4d5af954f77ea8fe5f91d312
    
     public boolean checkmhd() {
         for (Sach s : list) {
@@ -649,7 +666,7 @@ public class QuanLySach extends javax.swing.JFrame {
                 .addContainerGap(95, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("QUẢN LÝ SÁCH");
@@ -781,7 +798,6 @@ public class QuanLySach extends javax.swing.JFrame {
             fixForm.setLocationRelativeTo(this);
         }
        
-        
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
@@ -925,9 +941,9 @@ public class QuanLySach extends javax.swing.JFrame {
         // TODO add your handling code here:
         indexEdit = tblSach.getSelectedRow();
         if (indexEdit == -1) {
-            JOptionPane.showMessageDialog(rootPane, "Bạn cần chọn 1 hàng để sửa!!");
+            JOptionPane.showMessageDialog(rootPane, "Bạn cần chọn 1 hàng để xem!!");
         } else if (list.isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Bảng trống không thể sửa!!");
+            JOptionPane.showMessageDialog(rootPane, "Bảng trống!!");
         } else {
             setDetaiSach2(list.get(indexEdit));
             detailForm.setVisible(true);
@@ -979,7 +995,7 @@ public class QuanLySach extends javax.swing.JFrame {
     private void txtTenS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenS2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTenS2ActionPerformed
-  public void setDetaiSach(Sach s){
+    public void setDetaiSach(Sach s){
         txtMaS1.setEditable(false);
         txtMaS1.setText(s.getMaS());
         txtTenS1.setText(s.getTenS());
@@ -987,9 +1003,8 @@ public class QuanLySach extends javax.swing.JFrame {
         txtTenTG1.setText(s.getTenTG());
         txtSL1.setText(s.getsL() + "");
         txtGiaBan1.setText(s.getGia() + "");
-
    }
-  public void setDetaiSach2(Sach s){
+    public void setDetaiSach2(Sach s){
         txtMaS2.setEditable(false);
         txtTenS2.setEnabled(false);
         txtTenTL2.setEnabled(false);
@@ -1003,7 +1018,7 @@ public class QuanLySach extends javax.swing.JFrame {
         txtTenTG2.setText(s.getTenTG());
         txtSL2.setText(s.getsL() + "");
         txtGiaBan2.setText(s.getGia() + "");
-   }
+    }
     public void setEditData(Sach s) {
         txtMaS.setText(s.getMaS());
         txtTenS.setText(s.getTenS());
@@ -1013,7 +1028,7 @@ public class QuanLySach extends javax.swing.JFrame {
         txtGiaBan.setText(s.getGia() + "");
        
     }
- public void cancelValues() {
+    public void cancelValues() {
         txtMaS.setText("");
         errMaS.setText("");
         txtTenS.setText("");
@@ -1028,7 +1043,7 @@ public class QuanLySach extends javax.swing.JFrame {
         errGia.setText("");
  
     }
- public void showResult() {
+    public void showResult() {
         model.setRowCount(0);
         for (Sach s : list) {
             model.addRow(new Object[]{
@@ -1037,7 +1052,7 @@ public class QuanLySach extends javax.swing.JFrame {
         }
     }
  
- public void showResultSearch() {
+    public void showResultSearch() {
         model.setRowCount(0);
         for (Sach s : listSearch) {
             model.addRow(new Object[]{

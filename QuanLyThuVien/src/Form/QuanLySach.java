@@ -26,11 +26,13 @@ public class QuanLySach extends javax.swing.JFrame {
     List<Sach> list = file.read();
     List<Sach> listSearch = new ArrayList<Sach>();
     DefaultTableModel model;
+    DefaultTableModel model1;
     public int indexEdit;
     public QuanLySach() {
         initComponents();
         this.setLocationRelativeTo(null);
         model = (DefaultTableModel) tblSach.getModel();
+        model1 = (DefaultTableModel) tblSach1.getModel();
         showResult();
     }
    
@@ -116,6 +118,8 @@ public class QuanLySach extends javax.swing.JFrame {
         txtSearch = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblSach1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSach = new javax.swing.JTable();
@@ -625,6 +629,25 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
+        tblSach1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tblSach1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Mã sách", "Tên sách", "Tên thể loại", "Tác giả", "Giá tiền", "Số lượng"
+            }
+        ));
+        tblSach1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblSach1MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblSach1);
+
         javax.swing.GroupLayout searchFormLayout = new javax.swing.GroupLayout(searchForm.getContentPane());
         searchForm.getContentPane().setLayout(searchFormLayout);
         searchFormLayout.setHorizontalGroup(
@@ -632,19 +655,25 @@ public class QuanLySach extends javax.swing.JFrame {
             .addGroup(searchFormLayout.createSequentialGroup()
                 .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(searchFormLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addComponent(jLabel25)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(searchFormLayout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(jLabel25)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1))
+                            .addGroup(searchFormLayout.createSequentialGroup()
+                                .addGap(136, 136, 136)
+                                .addComponent(jLabel24))
+                            .addGroup(searchFormLayout.createSequentialGroup()
+                                .addGap(184, 184, 184)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(searchFormLayout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addComponent(jLabel24))
-                    .addGroup(searchFormLayout.createSequentialGroup()
-                        .addGap(192, 192, 192)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(45, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         searchFormLayout.setVerticalGroup(
             searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -656,9 +685,11 @@ public class QuanLySach extends javax.swing.JFrame {
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -961,9 +992,8 @@ public class QuanLySach extends javax.swing.JFrame {
         // TODO add your handling code here:
         Boolean check = false;
         for (Sach sach : list) {
-            if (sach.getMaS().equals(txtSearch.getText())) {
+            if (sach.getMaS().toLowerCase().equals(txtSearch.getText().toLowerCase())) {
                 listSearch.add(sach);
-                searchForm.setVisible(false);
                 showResultSearch();
                 listSearch.clear();
                 check = true;
@@ -990,6 +1020,10 @@ public class QuanLySach extends javax.swing.JFrame {
     private void txtTenS2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenS2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTenS2ActionPerformed
+
+    private void tblSach1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSach1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblSach1MouseClicked
     public void setDetaiSach(Sach s){
         txtMaS1.setEditable(false);
         txtMaS1.setText(s.getMaS());
@@ -1048,9 +1082,9 @@ public class QuanLySach extends javax.swing.JFrame {
     }
  
     public void showResultSearch() {
-        model.setRowCount(0);
+        model1.setRowCount(0);
         for (Sach s : listSearch) {
-            model.addRow(new Object[]{
+            model1.addRow(new Object[]{
                 s.getMaS(), s.getTenS(), s.getTenTL(), s.getTenTG(), s.getsL(), s.getGia()
             });
         }
@@ -1143,8 +1177,10 @@ public class QuanLySach extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JDialog searchForm;
     private javax.swing.JTable tblSach;
+    private javax.swing.JTable tblSach1;
     private javax.swing.JTextField txtGiaBan;
     private javax.swing.JTextField txtGiaBan1;
     private javax.swing.JTextField txtGiaBan2;

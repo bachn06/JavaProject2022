@@ -913,7 +913,7 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
         // TODO add your handling code here:
         Boolean check = false;
         for (Phieu phieu : list) {
-            if (phieu.getMaP().equals(txtSearch.getText())) {
+            if (phieu.getMaP().toLowerCase().equals(txtSearch.getText().toLowerCase())) {
                 listSearch.add(phieu);
                 showResultSearch();
                 listSearch.clear();

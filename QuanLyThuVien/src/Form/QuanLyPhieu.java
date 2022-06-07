@@ -7,6 +7,7 @@ package Form;
 
 import DoiTuong.Phieu;
 import ReadWrite.PhieuFile;
+import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static sun.util.locale.LocaleUtils.isEmpty;
 
 /**
  *
@@ -32,8 +34,10 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
     DefaultTableModel model;
     DefaultTableModel model1;
     int indexEdit;
+    int indexSearchEdit;
     Boolean valid = false;
     Boolean valid1 = false;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public QuanLyPhieu() {
         initComponents();
@@ -105,7 +109,8 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
 
     private Phieu getDetailPhieu() {
         Phieu p = new Phieu();
-        if (checkDate(txtNgayMuon.getText()) && checkDate(txtNgayTra.getText())
+        if (txtNgayTra.getText().compareTo(txtNgayMuon.getText()) > 0
+                && checkDate(txtNgayMuon.getText()) && checkDate(txtNgayTra.getText())
                 && checkMaP(txtMaP.getText())
                 && checkMaS(txtMaS.getText())
                 && checkMaDG(txtMaDG.getText())
@@ -133,8 +138,9 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
             } else {
                 validNgayMuon.setText("");
             }
-            if (!checkDate(txtNgayTra.getText())) {
-                validNgayTra.setText("Ngày trả có dạng dd/mm/yyyy");
+            if (!checkDate(txtNgayTra.getText()) || txtNgayTra.getText().compareTo(txtNgayMuon.getText()) < 0) {
+                validNgayTra.setText("Ngày trả có dạng dd/mm/yyyy "
+                        + "và lớn hơn ngày mượn");
             } else {
                 validNgayTra.setText("");
             }
@@ -174,7 +180,8 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
                 && checkMaS(txtMaS1.getText())
                 && checkMaDG(txtMaDG1.getText())
                 && checkSL(txtSL1.getText())
-                && checkGia(txtGia1.getText())) {
+                && checkGia(txtGia1.getText())
+                && txtNgayTra1.getText().compareTo(txtNgayMuon1.getText()) > 0) {
             p.setMaP(txtMaP1.getText().trim());
             p.setMaS(txtMaS1.getText().trim());
             p.setMaDG(txtMaDG1.getText().trim());
@@ -197,8 +204,9 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
             } else {
                 validNgayMuon1.setText("");
             }
-            if (!checkDate(txtNgayTra1.getText())) {
-                validNgayTra1.setText("Ngày trả có dạng dd/mm/yyyy");
+            if (!checkDate(txtNgayTra1.getText()) || txtNgayTra1.getText().compareTo(txtNgayMuon1.getText()) < 0) {
+                validNgayTra1.setText("Ngày trả có dạng dd/mm/yyyy "
+                        + "và lớn hơn ngày mượn");
             } else {
                 validNgayTra1.setText("");
             }
@@ -256,6 +264,7 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbSearch = new javax.swing.JTable();
+        btnSearchSua = new javax.swing.JButton();
         addForm = new javax.swing.JDialog();
         jLabel11 = new javax.swing.JLabel();
         txtSL = new javax.swing.JTextField();
@@ -315,7 +324,7 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
         tbPhieu = new javax.swing.JTable();
         btnDong = new javax.swing.JButton();
 
-        searchForm.setSize(new java.awt.Dimension(591, 426));
+        searchForm.setSize(new java.awt.Dimension(591, 500));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Nhập mã phiếu:");
@@ -346,7 +355,20 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7"
             }
         ));
+        tbSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbSearchMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbSearch);
+
+        btnSearchSua.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnSearchSua.setText("Sửa");
+        btnSearchSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchSuaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout searchFormLayout = new javax.swing.GroupLayout(searchForm.getContentPane());
         searchForm.getContentPane().setLayout(searchFormLayout);
@@ -357,7 +379,10 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
                     .addGroup(searchFormLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(searchFormLayout.createSequentialGroup()
+                                .addComponent(btnSearchSua, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(80, 80, 80)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(searchFormLayout.createSequentialGroup()
@@ -381,8 +406,10 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchSua, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         addForm.setBackground(new java.awt.Color(204, 255, 204));
@@ -729,12 +756,14 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("QUẢN LÝ PHIẾU");
 
         btnDisplayThem.setBackground(new java.awt.Color(204, 204, 204));
         btnDisplayThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnDisplayThem.setText("Thêm phiếu");
         btnDisplayThem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnDisplayThem.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnDisplayThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDisplayThemActionPerformed(evt);
@@ -827,17 +856,17 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(btnDong, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(183, 183, 183))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -912,11 +941,11 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Boolean check = false;
+        listSearch.clear();
         for (Phieu phieu : list) {
-            if (phieu.getMaP().toLowerCase().equals(txtSearch.getText().toLowerCase())) {
+            if (phieu.getMaP().equalsIgnoreCase(txtSearch.getText())) {
                 listSearch.add(phieu);
                 showResultSearch();
-                listSearch.clear();
                 check = true;
             }
         }
@@ -966,13 +995,51 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
         // TODO add your handling code here:
         Phieu a = getDetailPhieuEdit();
         if (valid1) {
-            list.set(indexEdit, a);
-            file.write(list);
-            showResult();
-            cancelValues();
-            editForm.dispose();
+            
+            if (String.valueOf(indexSearchEdit) != null){
+                int indexItem = 0;
+                for (int i = 0; i < list.size(); i++) {
+                     if(list.get(i).getMaP().equals(listSearch.get(indexSearchEdit).getMaP())){
+                        indexItem = i;
+                    }
+                }
+                list.set(indexItem, a);
+                listSearch.set(indexSearchEdit, a);
+                file.write(list);
+                showResult();
+                showResultSearch();
+                cancelValues();
+                editForm.dispose();
+            } else {
+                list.set(indexEdit, a);
+                file.write(list);
+                showResult();
+                cancelValues();
+                editForm.dispose();
+            }
+
         }
     }//GEN-LAST:event_btnSuaActionPerformed
+
+    private void btnSearchSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSuaActionPerformed
+        // TODO add your handling code here:
+        indexSearchEdit = tbSearch.getSelectedRow();
+        if (indexSearchEdit == -1) {
+            JOptionPane.showMessageDialog(rootPane, "Bạn cần chọn 1 hàng để sửa!!");
+        } else if (listSearch.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Bảng trống không thể sửa!!");
+        } else {
+            editForm.setVisible(true);
+            editForm.setLocationRelativeTo(this);
+//            searchForm.setVisible(false);
+        }
+    }//GEN-LAST:event_btnSearchSuaActionPerformed
+
+    private void tbSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSearchMouseClicked
+        // TODO add your handling code here:
+        indexSearchEdit = tbSearch.getSelectedRow();
+        setEditData(listSearch.get(indexSearchEdit));
+    }//GEN-LAST:event_tbSearchMouseClicked
 
     public void setEditData(Phieu p) {
         txtMaP1.setText(p.getMaP());
@@ -1052,6 +1119,7 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
     private javax.swing.JButton btnDong;
     private javax.swing.JButton btnHuy;
     private javax.swing.JButton btnHuy1;
+    private javax.swing.JButton btnSearchSua;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnTim;

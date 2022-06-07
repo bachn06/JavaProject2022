@@ -16,7 +16,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static sun.util.locale.LocaleUtils.isEmpty;
 
 /**
  *
@@ -48,6 +47,7 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
         showNameCol1();
         showResult();
         txtNgayMuon.setText(DateTimeFormatter.ofPattern("dd/MM/yyyy", Locale.ENGLISH).format(java.time.LocalDate.now()));
+        txtMaP1.setEnabled(false);
     }
 
     public void showNameCol() {

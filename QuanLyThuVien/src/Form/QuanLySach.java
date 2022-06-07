@@ -484,10 +484,16 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
+        txtMaS2.setEditable(false);
+        txtMaS2.setBackground(new java.awt.Color(255, 255, 255));
         txtMaS2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        txtTenTG2.setEditable(false);
+        txtTenTG2.setBackground(new java.awt.Color(255, 255, 255));
         txtTenTG2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        txtTenS2.setEditable(false);
+        txtTenS2.setBackground(new java.awt.Color(255, 255, 255));
         txtTenS2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtTenS2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -498,10 +504,16 @@ public class QuanLySach extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setText("Mã sách :");
 
+        txtTenTL2.setEditable(false);
+        txtTenTL2.setBackground(new java.awt.Color(255, 255, 255));
         txtTenTL2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        txtGiaBan2.setEditable(false);
+        txtGiaBan2.setBackground(new java.awt.Color(255, 255, 255));
         txtGiaBan2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        txtSL2.setEditable(false);
+        txtSL2.setBackground(new java.awt.Color(255, 255, 255));
         txtSL2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N

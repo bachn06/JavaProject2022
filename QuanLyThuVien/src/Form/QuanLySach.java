@@ -33,22 +33,6 @@ public class QuanLySach extends javax.swing.JFrame {
         model = (DefaultTableModel) tblSach.getModel();
         showResult();
     }
-
-    public Sach getDetailSach() {
-        Sach s = new Sach();
-        if (!txtMaS.getText().isEmpty()) {
-            s.setMaS(txtMaS.getText().trim());
-        } else {
-            // do something
-        }
-        s.setTenS(txtTenS.getText().trim());
-        s.setTenTL(txtTenTL.getText().trim());
-        s.setTenTG(txtTenTG.getText().trim());
-        s.setsL(Integer.parseInt(txtSL.getText()));
-        s.setGia(Float.parseFloat(txtGiaBan.getText()));
-        return s;
-    }
-
    
     public boolean checkmhd() {
         for (Sach s : list) {

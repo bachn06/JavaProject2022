@@ -28,6 +28,8 @@ public class QuanLySach extends javax.swing.JFrame {
     DefaultTableModel model;
     DefaultTableModel model1;
     public int indexEdit;
+    public int indexSearchEdit;
+
     public QuanLySach() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -35,7 +37,7 @@ public class QuanLySach extends javax.swing.JFrame {
         model1 = (DefaultTableModel) tblSach1.getModel();
         showResult();
     }
-   
+
     public boolean checkmhd() {
         for (Sach s : list) {
             if (s.getMaS().equals(txtMaS.getText())) {
@@ -44,6 +46,7 @@ public class QuanLySach extends javax.swing.JFrame {
         }
         return true;
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -120,6 +123,7 @@ public class QuanLySach extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSach1 = new javax.swing.JTable();
+        btnSearchSua = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSach = new javax.swing.JTable();
@@ -638,7 +642,7 @@ public class QuanLySach extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã sách", "Tên sách", "Tên thể loại", "Tác giả", "Giá tiền", "Số lượng"
+                "Mã sách", "Tên sách", "Tên thể loại", "Tác giả", "Số lượng", "Giá tiền"
             }
         ));
         tblSach1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -647,6 +651,14 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(tblSach1);
+
+        btnSearchSua.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchSua.setText("Sửa");
+        btnSearchSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchSuaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout searchFormLayout = new javax.swing.GroupLayout(searchForm.getContentPane());
         searchForm.getContentPane().setLayout(searchFormLayout);
@@ -665,14 +677,16 @@ public class QuanLySach extends javax.swing.JFrame {
                                 .addComponent(jButton1))
                             .addGroup(searchFormLayout.createSequentialGroup()
                                 .addGap(136, 136, 136)
-                                .addComponent(jLabel24))
-                            .addGroup(searchFormLayout.createSequentialGroup()
-                                .addGap(184, 184, 184)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel24)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(searchFormLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)))
+                        .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchFormLayout.createSequentialGroup()
+                                .addComponent(btnSearchSua, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
         searchFormLayout.setVerticalGroup(
@@ -687,9 +701,11 @@ public class QuanLySach extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchSua, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -706,7 +722,7 @@ public class QuanLySach extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Mã sách", "Tên sách", "Tên thể loại", "Tác giả", "Giá tiền", "Số lượng"
+                "Mã sách", "Tên sách", "Tên thể loại", "Tác giả", "Số lượng", "Giá tiền"
             }
         ));
         tblSach.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -823,12 +839,12 @@ public class QuanLySach extends javax.swing.JFrame {
             fixForm.setVisible(true);
             fixForm.setLocationRelativeTo(this);
         }
-       
+
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-         int indexRemove = tblSach.getSelectedRow();
+        int indexRemove = tblSach.getSelectedRow();
         if (indexRemove == -1) {
             JOptionPane.showMessageDialog(rootPane, "Bạn cần chọn 1 hàng để xóa!!");
         } else if (list.isEmpty()) {
@@ -866,43 +882,43 @@ public class QuanLySach extends javax.swing.JFrame {
         // TODO add your handling code here:
         boolean isAdd = true;
         if (checkmhd()) {
-             Sach s = new Sach();
-        if (!txtMaS.getText().isEmpty()) {
-            s.setMaS(txtMaS.getText().trim());
-        } else {
-            errMaS.setText("Mã sách không được để trống!");
-            isAdd = false;
-        }
-        if (!txtTenS.getText().isEmpty()) {
-            s.setTenS(txtTenS.getText().trim());
-        } else {
-            errTenS.setText("Tên sách không được để trống!");
-            isAdd = false;
-        }
-        if (!txtTenTL.getText().isEmpty()) {
-            s.setTenTL(txtTenTL.getText().trim());
-        } else {
-            errTenTL.setText("Tên thể loại không được để trống!");
-            isAdd = false;
-        }
-        if (!txtTenTG.getText().isEmpty()) {
-            s.setTenTG(txtTenTG.getText().trim());
-        } else {
-            errTenTG.setText("Tên tác giả không được để trống!");
-            isAdd = false;
-        }
-        if (!txtSL.getText().isEmpty() && txtSL.getText().matches("^[0-9]*$") && Integer.parseInt(txtSL.getText()) > 0) {
-            s.setsL(Integer.parseInt(txtSL.getText()));
-        } else {
-            errSL.setText("Số lượng phải là số và lớn hơn 0!");
-            isAdd = false;
-        }
-        if (!txtGiaBan.getText().isEmpty() && txtGiaBan.getText().matches("^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$") && Float.parseFloat(txtGiaBan.getText()) > 0) {
-            s.setGia(Float.parseFloat(txtGiaBan.getText()));
-        } else {
-            errGia.setText("Giá phải là số và lớn hơn 0!");
-            isAdd = false;
-        } 
+            Sach s = new Sach();
+            if (!txtMaS.getText().isEmpty()) {
+                s.setMaS(txtMaS.getText().trim());
+            } else {
+                errMaS.setText("Mã sách không được để trống!");
+                isAdd = false;
+            }
+            if (!txtTenS.getText().isEmpty()) {
+                s.setTenS(txtTenS.getText().trim());
+            } else {
+                errTenS.setText("Tên sách không được để trống!");
+                isAdd = false;
+            }
+            if (!txtTenTL.getText().isEmpty()) {
+                s.setTenTL(txtTenTL.getText().trim());
+            } else {
+                errTenTL.setText("Tên thể loại không được để trống!");
+                isAdd = false;
+            }
+            if (!txtTenTG.getText().isEmpty()) {
+                s.setTenTG(txtTenTG.getText().trim());
+            } else {
+                errTenTG.setText("Tên tác giả không được để trống!");
+                isAdd = false;
+            }
+            if (!txtSL.getText().isEmpty() && txtSL.getText().matches("^[0-9]*$") && Integer.parseInt(txtSL.getText()) > 0) {
+                s.setsL(Integer.parseInt(txtSL.getText()));
+            } else {
+                errSL.setText("Số lượng phải là số và lớn hơn 0!");
+                isAdd = false;
+            }
+            if (!txtGiaBan.getText().isEmpty() && txtGiaBan.getText().matches("^[+-]?([0-9]+([.][0-9]*)?|[.][0-9]+)$") && Float.parseFloat(txtGiaBan.getText()) > 0) {
+                s.setGia(Float.parseFloat(txtGiaBan.getText()));
+            } else {
+                errGia.setText("Giá phải là số và lớn hơn 0!");
+                isAdd = false;
+            }
             if (isAdd) {
                 try {
                     list.add(s);
@@ -913,11 +929,11 @@ public class QuanLySach extends javax.swing.JFrame {
                 } catch (Exception e) {
                     System.out.println("Thêm thất bại.");
                 }
-            } 
+            }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Mã sách đã tồn tại. Bạn hãy nhập lại phiếu");
         }
-        
+
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
@@ -956,10 +972,11 @@ public class QuanLySach extends javax.swing.JFrame {
             isEdit = false;
         }
         if (isEdit) {
-            list.set(indexEdit,s);
+            list.set(indexEdit, s);            
             file.write(list);
             showResult();
-            fixForm.setVisible(false); 
+            fixForm.dispose();
+            searchForm.setVisible(false);
         }
     }//GEN-LAST:event_btnCapNhatActionPerformed
 
@@ -986,16 +1003,17 @@ public class QuanLySach extends javax.swing.JFrame {
         // TODO add your handling code here:
         searchForm.setVisible(true);
         searchForm.setLocationRelativeTo(this);
+        tblSach.getSelectionModel().clearSelection();
     }//GEN-LAST:event_btnTimKiemActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Boolean check = false;
+        listSearch.clear();
         for (Sach sach : list) {
             if (sach.getMaS().toLowerCase().equals(txtSearch.getText().toLowerCase())) {
                 listSearch.add(sach);
                 showResultSearch();
-                listSearch.clear();
                 check = true;
                 txtSearch.setText("");
             }
@@ -1023,8 +1041,22 @@ public class QuanLySach extends javax.swing.JFrame {
 
     private void tblSach1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSach1MouseClicked
         // TODO add your handling code here:
+        indexSearchEdit = tblSach1.getSelectedRow();
+        setDetaiSach(listSearch.get(indexSearchEdit));
     }//GEN-LAST:event_tblSach1MouseClicked
-    public void setDetaiSach(Sach s){
+
+    private void btnSearchSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSuaActionPerformed
+        // TODO add your handling code here:
+        if (indexSearchEdit == -1) {
+            JOptionPane.showMessageDialog(rootPane, "Bạn cần chọn 1 hàng để sửa!!");
+        } else if (listSearch.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Bảng trống không thể sửa!!");
+        } else {
+            fixForm.setVisible(true);
+            fixForm.setLocationRelativeTo(this);
+        }
+    }//GEN-LAST:event_btnSearchSuaActionPerformed
+    public void setDetaiSach(Sach s) {
         txtMaS1.setEditable(false);
         txtMaS1.setText(s.getMaS());
         txtTenS1.setText(s.getTenS());
@@ -1032,15 +1064,16 @@ public class QuanLySach extends javax.swing.JFrame {
         txtTenTG1.setText(s.getTenTG());
         txtSL1.setText(s.getsL() + "");
         txtGiaBan1.setText(s.getGia() + "");
-   }
-    public void setDetaiSach2(Sach s){
+    }
+
+    public void setDetaiSach2(Sach s) {
         txtMaS2.setEditable(false);
         txtTenS2.setEnabled(false);
         txtTenTL2.setEnabled(false);
         txtTenTG2.setEnabled(false);
         txtSL2.setEnabled(false);
         txtGiaBan2.setEnabled(false);
-        
+
         txtMaS2.setText(s.getMaS());
         txtTenS2.setText(s.getTenS());
         txtTenTL2.setText(s.getTenTL());
@@ -1048,6 +1081,7 @@ public class QuanLySach extends javax.swing.JFrame {
         txtSL2.setText(s.getsL() + "");
         txtGiaBan2.setText(s.getGia() + "");
     }
+
     public void setEditData(Sach s) {
         txtMaS.setText(s.getMaS());
         txtTenS.setText(s.getTenS());
@@ -1055,8 +1089,8 @@ public class QuanLySach extends javax.swing.JFrame {
         txtTenTG.setText(s.getTenTG() + "");
         txtSL.setText(s.getsL() + "");
         txtGiaBan.setText(s.getGia() + "");
-       
     }
+
     public void cancelValues() {
         txtMaS.setText("");
         errMaS.setText("");
@@ -1070,8 +1104,9 @@ public class QuanLySach extends javax.swing.JFrame {
         errSL.setText("");
         txtGiaBan.setText("");
         errGia.setText("");
- 
+
     }
+
     public void showResult() {
         model.setRowCount(0);
         for (Sach s : list) {
@@ -1080,7 +1115,7 @@ public class QuanLySach extends javax.swing.JFrame {
             });
         }
     }
- 
+
     public void showResultSearch() {
         model1.setRowCount(0);
         for (Sach s : listSearch) {
@@ -1089,6 +1124,7 @@ public class QuanLySach extends javax.swing.JFrame {
             });
         }
     }
+
     /**
      * @param args the command line arguments
      */
@@ -1130,6 +1166,7 @@ public class QuanLySach extends javax.swing.JFrame {
     private javax.swing.JButton btnCapNhat;
     private javax.swing.JButton btnDong;
     private javax.swing.JButton btnHienThi;
+    private javax.swing.JButton btnSearchSua;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnThoat;

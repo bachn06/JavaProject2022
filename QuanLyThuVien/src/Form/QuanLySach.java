@@ -28,7 +28,7 @@ public class QuanLySach extends javax.swing.JFrame {
     DefaultTableModel model;
     DefaultTableModel model1;
     public int indexEdit;
-    public int indexSearchEdit;
+    public int indexSearchEdit = -1;
 
     public QuanLySach() {
         initComponents();
@@ -883,10 +883,10 @@ public class QuanLySach extends javax.swing.JFrame {
         boolean isAdd = true;
         if (checkmhd()) {
             Sach s = new Sach();
-            if (!txtMaS.getText().isEmpty()) {
+            if (!txtMaS.getText().isEmpty() && txtMaS.getText().matches("MS[0-9][0-9][0-9][0-9]")) {
                 s.setMaS(txtMaS.getText().trim());
             } else {
-                errMaS.setText("Mã sách không được để trống!");
+                errMaS.setText("Mã sách không được để trống và định dạng MSxxxx!");
                 isAdd = false;
             }
             if (!txtTenS.getText().isEmpty()) {
@@ -972,11 +972,27 @@ public class QuanLySach extends javax.swing.JFrame {
             isEdit = false;
         }
         if (isEdit) {
-            list.set(indexEdit, s);            
-            file.write(list);
-            showResult();
-            fixForm.dispose();
-            searchForm.setVisible(false);
+            if (indexSearchEdit != -1) {
+                int indexItem = 0;
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getMaS().equals(listSearch.get(indexSearchEdit).getMaS())) {
+                        indexItem = i;
+                    }
+                }
+                list.set(indexItem, s);
+                listSearch.set(indexSearchEdit, s);
+                file.write(list);
+                showResult();
+                showResultSearch();
+                cancelValues();
+                fixForm.dispose();
+            } else {
+                list.set(indexEdit, s);
+                file.write(list);
+                showResult();
+                cancelValues();
+                fixForm.dispose();
+            }
         }
     }//GEN-LAST:event_btnCapNhatActionPerformed
 
@@ -1042,7 +1058,7 @@ public class QuanLySach extends javax.swing.JFrame {
     private void tblSach1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSach1MouseClicked
         // TODO add your handling code here:
         indexSearchEdit = tblSach1.getSelectedRow();
-        setDetaiSach(listSearch.get(indexSearchEdit));
+        setEditData(listSearch.get(indexSearchEdit));
     }//GEN-LAST:event_tblSach1MouseClicked
 
     private void btnSearchSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSuaActionPerformed
@@ -1083,12 +1099,12 @@ public class QuanLySach extends javax.swing.JFrame {
     }
 
     public void setEditData(Sach s) {
-        txtMaS.setText(s.getMaS());
-        txtTenS.setText(s.getTenS());
-        txtTenTL.setText(s.getTenTL());
-        txtTenTG.setText(s.getTenTG() + "");
-        txtSL.setText(s.getsL() + "");
-        txtGiaBan.setText(s.getGia() + "");
+        txtMaS1.setText(s.getMaS());
+        txtTenS1.setText(s.getTenS());
+        txtTenTL1.setText(s.getTenTL());
+        txtTenTG1.setText(s.getTenTG() + "");
+        txtSL1.setText(s.getsL() + "");
+        txtGiaBan1.setText(s.getGia() + "");
     }
 
     public void cancelValues() {

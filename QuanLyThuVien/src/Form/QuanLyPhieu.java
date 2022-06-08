@@ -1092,6 +1092,7 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
 
     private void btnDisplayThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisplayThemActionPerformed
         // TODO add your handling code here:
+        tbPhieu.getSelectionModel().clearSelection();
         addForm.setVisible(true);
         addForm.setLocationRelativeTo(this);
     }//GEN-LAST:event_btnDisplayThemActionPerformed
@@ -1137,6 +1138,7 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
 
     private void btnTimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimActionPerformed
         // TODO add your handling code here:
+        tbPhieu.getSelectionModel().clearSelection();
         searchForm.setVisible(true);
         searchForm.setLocationRelativeTo(this);
 

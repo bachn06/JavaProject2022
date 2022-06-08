@@ -962,7 +962,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                 check = false;
                 errLabel4.setText(validate2(sdt));
             }
-            System.out.println(check);
+            JOptionPane.showMessageDialog(rootPane, check);
             if(check) {
                 int reply = JOptionPane.showConfirmDialog(null, "Bạn có muốn sửa không ?", "", JOptionPane.YES_NO_OPTION);
                 if (reply == JOptionPane.YES_OPTION) {

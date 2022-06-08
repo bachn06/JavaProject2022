@@ -37,7 +37,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         model = (DefaultTableModel) tbDocGia.getModel();
-       model1 = (DefaultTableModel) tblDocGIa1.getModel();
+        model1 = (DefaultTableModel) tblDocGIa1.getModel();
         showResult();
     }
 
@@ -51,9 +51,9 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         errLabel04.setText("");
         
         String mdg = txtMDG.getText().trim();
-        if(!validate1(mdg).equals("")) {
+        if(!validate0(mdg).equals("")) {
             check = false;
-            errLabel04.setText(validate1(mdg));
+            errLabel04.setText(validate0(mdg));
         }
             
         String tdg = txtTDG.getText().trim();
@@ -123,6 +123,17 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         Matcher matcher = patternDate.matcher(value);
         if(!matcher.find()) {
             return "Số điện thoại chỉ chứa số và ít nhất 9 kí tự";
+        }
+        return "";
+    }
+    public String validate0(String value) {
+
+        String regex = "MDG[0-9][0-9][0-9][0-9]";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(value);
+        
+        if(!matcher.find()) {
+            return "Mã độc giả phải có dạng MDGxxxx (Với x là số)";
         }
         return "";
     }
@@ -318,8 +329,8 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtTDG))
                             .addGroup(jDialogThemLayout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtSDTDG))
                             .addGroup(jDialogThemLayout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -555,8 +566,8 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                                     .addComponent(rbNu2))
                                 .addComponent(txtDCDG2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialogSuaLayout.createSequentialGroup()
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(txtSDTDG2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(errLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(errLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -827,6 +838,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
             } else {
                 setDetaiSachDG(list.get(indexEdit));
                 jDialogChiTiet.setVisible(true);
+                tbDocGia.getSelectionModel().clearSelection();
             }
     }//GEN-LAST:event_btnChiTietDGActionPerformed
 
@@ -839,6 +851,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDialogThem.setVisible(true);
         jDialogThem.setLocationRelativeTo(this);
+        tbDocGia.getSelectionModel().clearSelection();
     }//GEN-LAST:event_btnThemDGActionPerformed
 
     private void btnThemMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemMoiActionPerformed
@@ -893,6 +906,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
             setDetaiSachDG2(list.get(indexChange));
             jDialogSua.setVisible(true);
             jDialogSua.setLocationRelativeTo(this);
+            tbDocGia.getSelectionModel().clearSelection();
         }
         
     }//GEN-LAST:event_btnSuaDGActionPerformed
@@ -903,9 +917,9 @@ public class QuanLyDocGia extends javax.swing.JFrame {
             boolean check = true;
             
             String mdg = txtMDG2.getText().trim();
-            if(!validate1(mdg).equals("")) {
+            if(!validate0(mdg).equals("")) {
                 check = false;
-                errLabel1.setText(validate1(mdg));
+                errLabel1.setText(validate0(mdg));
             }
             
             String tdg = txtTDG2.getText().trim();
@@ -961,6 +975,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         // TODO add your handling code here:
         jDialogTimKiem.setVisible(true);
         jDialogTimKiem.setLocationRelativeTo(this);
+        tbDocGia.getSelectionModel().clearSelection();
     }//GEN-LAST:event_btnTimKiemDGActionPerformed
     public void showResultSearch() {
         model1.setRowCount(0);
@@ -992,6 +1007,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         showResult();
         txtSearch.setText("");
         jDialogTimKiem.setVisible(false);
+        tbDocGia.getSelectionModel().clearSelection();
     }//GEN-LAST:event_jButtonCancalTimKiemActionPerformed
 
     private void tblDocGIa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocGIa1MouseClicked

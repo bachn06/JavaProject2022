@@ -214,6 +214,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         errLabel02 = new javax.swing.JLabel();
         errLabel03 = new javax.swing.JLabel();
         errLabel04 = new javax.swing.JLabel();
+        btnCLoseAddDG = new javax.swing.JButton();
         buttonGroup1 = new javax.swing.ButtonGroup();
         jDialogChiTiet = new javax.swing.JDialog();
         jLabel12 = new javax.swing.JLabel();
@@ -228,6 +229,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         txtDCDG1 = new javax.swing.JTextField();
         txtSDTDG1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        closeDetailForm = new javax.swing.JButton();
         jDialogSua = new javax.swing.JDialog();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
@@ -246,6 +248,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         errLabel4 = new javax.swing.JLabel();
         errLabel3 = new javax.swing.JLabel();
         errLabel1 = new javax.swing.JLabel();
+        btnCLoseSuaDG = new javax.swing.JButton();
         buttonGroup2 = new javax.swing.ButtonGroup();
         jDialogTimKiem = new javax.swing.JDialog();
         jLabel24 = new javax.swing.JLabel();
@@ -325,6 +328,14 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         errLabel04.setForeground(new java.awt.Color(255, 0, 0));
         errLabel04.setToolTipText("");
 
+        btnCLoseAddDG.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnCLoseAddDG.setText("Hủy");
+        btnCLoseAddDG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCLoseAddDGActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jDialogThemLayout = new javax.swing.GroupLayout(jDialogThem.getContentPane());
         jDialogThem.getContentPane().setLayout(jDialogThemLayout);
         jDialogThemLayout.setHorizontalGroup(
@@ -334,43 +345,43 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jDialogThemLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
                 .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialogThemLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialogThemLayout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSDTDG, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(errLabel01)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialogThemLayout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(errLabel02)
-                                    .addComponent(txtDCDG, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialogThemLayout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTDG, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(errLabel03)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialogThemLayout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(rbNam)
-                                .addGap(18, 18, 18)
-                                .addComponent(rbNu))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialogThemLayout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtMDG, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(errLabel04)))))
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(errLabel02)
+                            .addComponent(txtDCDG, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jDialogThemLayout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(btnThemMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTDG, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(errLabel03)))
+                    .addGroup(jDialogThemLayout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(rbNam)
+                        .addGap(18, 18, 18)
+                        .addComponent(rbNu))
+                    .addGroup(jDialogThemLayout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtMDG, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(errLabel04)))
+                    .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jDialogThemLayout.createSequentialGroup()
+                            .addComponent(btnThemMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCLoseAddDG, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jDialogThemLayout.createSequentialGroup()
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtSDTDG, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(errLabel01)))))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
         jDialogThemLayout.setVerticalGroup(
@@ -407,101 +418,130 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                     .addComponent(txtSDTDG, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(errLabel01, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(btnThemMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnThemMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCLoseAddDG, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         jDialogChiTiet.setLocation(new java.awt.Point(500, 100));
-        jDialogChiTiet.setSize(new java.awt.Dimension(350, 420));
+        jDialogChiTiet.setSize(new java.awt.Dimension(517, 475));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setText("Giới tính:");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("CHI TIẾT THÔNG TIN ĐỘC GIẢ");
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
+        jLabel4.setText("THÔNG TIN ĐỘC GIẢ");
 
+        rbNam1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         rbNam1.setSelected(true);
         rbNam1.setText("Nam");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel13.setText("Mã độc giả:");
 
+        rbNu1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         rbNu1.setText("Nữ");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Tên độc giả:");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtMDG1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        txtTDG1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel10.setText("Địa chỉ:");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtDCDG1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        txtSDTDG1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setText("Số điện thoại:");
+
+        closeDetailForm.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        closeDetailForm.setText("Đóng");
+        closeDetailForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeDetailFormActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jDialogChiTietLayout = new javax.swing.GroupLayout(jDialogChiTiet.getContentPane());
         jDialogChiTiet.getContentPane().setLayout(jDialogChiTietLayout);
         jDialogChiTietLayout.setHorizontalGroup(
             jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialogChiTietLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialogChiTietLayout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSDTDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDialogChiTietLayout.createSequentialGroup()
-                        .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
+                        .addGap(60, 60, 60)
                         .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jDialogChiTietLayout.createSequentialGroup()
-                                .addComponent(rbNam1)
-                                .addGap(18, 18, 18)
-                                .addComponent(rbNu1))
-                            .addComponent(txtDCDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jDialogChiTietLayout.createSequentialGroup()
-                        .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))
-                        .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtSDTDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jDialogChiTietLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(txtTDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogChiTietLayout.createSequentialGroup()
-                                .addGap(18, 18, 18)
                                 .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(txtMDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(156, Short.MAX_VALUE))
+                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(35, 35, 35)
+                                .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jDialogChiTietLayout.createSequentialGroup()
+                                        .addComponent(rbNam1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(rbNu1))
+                                    .addComponent(txtDCDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jDialogChiTietLayout.createSequentialGroup()
+                                .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))
+                                .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jDialogChiTietLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtTDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogChiTietLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtMDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, 0))))))
+                    .addGroup(jDialogChiTietLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel4)))
+                .addGap(60, 60, 60))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogChiTietLayout.createSequentialGroup()
+                .addComponent(closeDetailForm, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(189, 189, 189))
         );
         jDialogChiTietLayout.setVerticalGroup(
             jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDialogChiTietLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addGap(42, 42, 42)
                 .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(txtMDG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtMDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtTDG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                    .addComponent(txtTDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(rbNam1)
                     .addComponent(rbNu1))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(txtDCDG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                    .addComponent(txtDCDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(jDialogChiTietLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(txtSDTDG1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(110, Short.MAX_VALUE))
+                    .addComponent(txtSDTDG1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(closeDetailForm, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         jDialogSua.setLocation(new java.awt.Point(500, 100));
@@ -563,16 +603,25 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         errLabel1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errLabel1.setForeground(new java.awt.Color(255, 51, 51));
 
+        btnCLoseSuaDG.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnCLoseSuaDG.setText("Hủy");
+        btnCLoseSuaDG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCLoseSuaDGActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jDialogSuaLayout = new javax.swing.GroupLayout(jDialogSua.getContentPane());
         jDialogSua.getContentPane().setLayout(jDialogSuaLayout);
         jDialogSuaLayout.setHorizontalGroup(
             jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialogSuaLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(jLabel15)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialogSuaLayout.createSequentialGroup()
                 .addGap(80, 80, 80)
                 .addGroup(jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jDialogSuaLayout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(btnXacNhanSuaDocGia, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jDialogSuaLayout.createSequentialGroup()
                         .addGroup(jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -602,12 +651,12 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                         .addGap(56, 56, 56)
                         .addGroup(jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(errLabel2)
-                            .addComponent(txtTDG2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtTDG2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jDialogSuaLayout.createSequentialGroup()
+                        .addComponent(btnXacNhanSuaDocGia, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCLoseSuaDG, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(80, 80, 80))
-            .addGroup(jDialogSuaLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jLabel15)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jDialogSuaLayout.setVerticalGroup(
             jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -643,9 +692,11 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                     .addComponent(txtSDTDG2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(errLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(btnXacNhanSuaDocGia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+                .addGap(33, 33, 33)
+                .addGroup(jDialogSuaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnXacNhanSuaDocGia, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCLoseSuaDG, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43))
         );
 
         jDialogTimKiem.setSize(new java.awt.Dimension(632, 381));
@@ -1054,10 +1105,9 @@ public class QuanLyDocGia extends javax.swing.JFrame {
 
     private void jButtonCancalTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancalTimKiemActionPerformed
         // TODO add your handling code here:
-        showResult();
+        showResultSearch();
         txtSearch.setText("");
         jDialogTimKiem.setVisible(false);
-        tbDocGia.getSelectionModel().clearSelection();
     }//GEN-LAST:event_jButtonCancalTimKiemActionPerformed
 
     private void tblDocGIa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocGIa1MouseClicked
@@ -1084,6 +1134,22 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     private void rbNuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNuActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbNuActionPerformed
+
+    private void closeDetailFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeDetailFormActionPerformed
+        // TODO add your handling code here:
+        jDialogChiTiet.setVisible(false);
+    }//GEN-LAST:event_closeDetailFormActionPerformed
+
+    private void btnCLoseSuaDGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCLoseSuaDGActionPerformed
+        // TODO add your handling code here:
+        jDialogSua.setVisible(false);
+    }//GEN-LAST:event_btnCLoseSuaDGActionPerformed
+
+    private void btnCLoseAddDGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCLoseAddDGActionPerformed
+        // TODO add your handling code here:
+        cancelValues();
+        jDialogThem.setVisible(false);
+    }//GEN-LAST:event_btnCLoseAddDGActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1121,6 +1187,8 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCLoseAddDG;
+    private javax.swing.JButton btnCLoseSuaDG;
     private javax.swing.JButton btnChiTietDG;
     private javax.swing.JButton btnDongDG;
     private javax.swing.JButton btnSuaDG;
@@ -1131,6 +1199,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     private javax.swing.JButton btnXoaDG;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton closeDetailForm;
     private javax.swing.JLabel errLabel01;
     private javax.swing.JLabel errLabel02;
     private javax.swing.JLabel errLabel03;

@@ -94,6 +94,4 @@ public class Phieu implements Serializable{
     public String toString() {
         return maP;
     }
-    
-    
 }

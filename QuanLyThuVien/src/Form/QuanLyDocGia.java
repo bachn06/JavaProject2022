@@ -32,6 +32,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     DefaultTableModel model;
     DefaultTableModel model1;
     public int indexEdit;
+    boolean checkDialog = false; 
 
     public QuanLyDocGia() {
         initComponents();
@@ -112,17 +113,20 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         return true;
     }
     public String validate1(String value) {
-        if(value.equals("")) {
-           return "Không được để trống thông tin";
+        
+        Pattern patternDate = Pattern.compile("^[A-Za-z]{1,}$");
+        Matcher matcher = patternDate.matcher(value);
+        if(!matcher.find()) {
+           return "Không được để trống thông tin và chỉ chứa kí tự A-Z";
         }
         return "";
     }
     public String validate2(String value) {
 
-        Pattern patternDate = Pattern.compile("^[0-9]{9,}$");
+        Pattern patternDate = Pattern.compile("^[0-9]{10,10}$");
         Matcher matcher = patternDate.matcher(value);
         if(!matcher.find()) {
-            return "Số điện thoại chỉ chứa số và ít nhất 9 kí tự";
+            return "Số điện thoại chỉ chứa số và 10 kí tự";
         }
         return "";
     }
@@ -251,6 +255,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         jButtonCancalTimKiem = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblDocGIa1 = new javax.swing.JTable();
+        jButtonSuaSub = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbDocGia = new javax.swing.JTable();
@@ -381,7 +386,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                     .addComponent(rbNu))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jDialogThemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtDCDG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(errLabel02, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -662,6 +667,14 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblDocGIa1);
 
+        jButtonSuaSub.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonSuaSub.setText("Sửa");
+        jButtonSuaSub.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSuaSubActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jDialogTimKiemLayout = new javax.swing.GroupLayout(jDialogTimKiem.getContentPane());
         jDialogTimKiem.getContentPane().setLayout(jDialogTimKiemLayout);
         jDialogTimKiemLayout.setHorizontalGroup(
@@ -669,17 +682,12 @@ public class QuanLyDocGia extends javax.swing.JFrame {
             .addGroup(jDialogTimKiemLayout.createSequentialGroup()
                 .addGroup(jDialogTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jDialogTimKiemLayout.createSequentialGroup()
-                        .addGroup(jDialogTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jDialogTimKiemLayout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(jLabel25)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonTimKIemDG))
-                            .addGroup(jDialogTimKiemLayout.createSequentialGroup()
-                                .addGap(184, 184, 184)
-                                .addComponent(jButtonCancalTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(45, 45, 45)
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonTimKIemDG)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jDialogTimKiemLayout.createSequentialGroup()
                         .addContainerGap()
@@ -689,6 +697,12 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel24)
                 .addGap(179, 179, 179))
+            .addGroup(jDialogTimKiemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonSuaSub, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonCancalTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jDialogTimKiemLayout.setVerticalGroup(
             jDialogTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -702,9 +716,11 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                     .addComponent(jButtonTimKIemDG, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(jButtonCancalTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addGroup(jDialogTimKiemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonCancalTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSuaSub, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -965,6 +981,12 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                     jDialogSua.setVisible(false);
                     showResult();
                 }
+                if(checkDialog) {
+                    listSearch.add(list.get(indexEdit));
+                    showResultSearch();
+                    listSearch.clear();
+                    checkDialog = false;
+                }
             }
         } else {
             JOptionPane.showMessageDialog(rootPane, "Mã độc giả bạn nhập đã tồn tại!");
@@ -976,6 +998,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         jDialogTimKiem.setVisible(true);
         jDialogTimKiem.setLocationRelativeTo(this);
         tbDocGia.getSelectionModel().clearSelection();
+        tblDocGIa1.remove(0);
     }//GEN-LAST:event_btnTimKiemDGActionPerformed
     public void showResultSearch() {
         model1.setRowCount(0);
@@ -988,6 +1011,8 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     private void jButtonTimKIemDGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTimKIemDGActionPerformed
         // TODO add your handling code here:
         Boolean check = false;
+        int index = 0;
+        model1.setRowCount(0);
         for (DocGia dg : list) {
             if (dg.getMaDG().toLowerCase().equals(txtSearch.getText().toLowerCase())) {
                 listSearch.add(dg);
@@ -995,7 +1020,9 @@ public class QuanLyDocGia extends javax.swing.JFrame {
                 listSearch.clear();
                 check = true;
                 txtSearch.setText("");
+                indexEdit = index;
             }
+            index++;
         }
         if (!check) {
             JOptionPane.showMessageDialog(rootPane, "Mã độc giả bạn nhập không tồn tại!");
@@ -1013,6 +1040,23 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     private void tblDocGIa1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocGIa1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tblDocGIa1MouseClicked
+
+    private void jButtonSuaSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSuaSubActionPerformed
+        // TODO add your handling code here:
+        int indexChange = tblDocGIa1.getSelectedRow();
+        if (indexChange == -1) {
+            JOptionPane.showMessageDialog(rootPane, "Bạn cần chọn 1 hàng để sửa!!");
+        } else if (list.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Bảng trống không có độc giả để sửa!!");
+        } else {
+            setDetaiSachDG2(list.get(indexEdit));            
+            
+            jDialogSua.setVisible(true);
+            jDialogSua.setLocationRelativeTo(this);
+            checkDialog = true;
+            tbDocGia.getSelectionModel().clearSelection();
+        }
+    }//GEN-LAST:event_jButtonSuaSubActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1069,6 +1113,7 @@ public class QuanLyDocGia extends javax.swing.JFrame {
     private javax.swing.JLabel errLabel3;
     private javax.swing.JLabel errLabel4;
     private javax.swing.JButton jButtonCancalTimKiem;
+    private javax.swing.JButton jButtonSuaSub;
     private javax.swing.JButton jButtonTimKIemDG;
     private javax.swing.JDialog jDialogChiTiet;
     private javax.swing.JDialog jDialogSua;

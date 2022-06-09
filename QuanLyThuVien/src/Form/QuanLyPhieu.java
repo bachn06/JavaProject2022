@@ -550,7 +550,7 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
         txtNgayTra.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel16.setText("Mã đọc giả:");
+        jLabel16.setText("Mã độc giả:");
 
         txtMaDG.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 

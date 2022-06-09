@@ -69,6 +69,7 @@ public class TrangChuUser extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSach1 = new javax.swing.JTable();
+        btnHienThi2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblSach = new javax.swing.JTable();
@@ -194,7 +195,7 @@ public class TrangChuUser extends javax.swing.JFrame {
                 .addGap(39, 39, 39))
         );
 
-        tkSach.setSize(new java.awt.Dimension(588, 513));
+        tkSach.setSize(new java.awt.Dimension(657, 543));
 
         jLabel24.setFont(new java.awt.Font("Times New Roman", 1, 32)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(51, 51, 51));
@@ -235,6 +236,14 @@ public class TrangChuUser extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tblSach1);
 
+        btnHienThi2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnHienThi2.setText("Hiển thị");
+        btnHienThi2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHienThi2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout tkSachLayout = new javax.swing.GroupLayout(tkSach.getContentPane());
         tkSach.getContentPane().setLayout(tkSachLayout);
         tkSachLayout.setHorizontalGroup(
@@ -244,7 +253,8 @@ public class TrangChuUser extends javax.swing.JFrame {
                 .addGroup(tkSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
                     .addGroup(tkSachLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnHienThi2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tkSachLayout.createSequentialGroup()
                         .addComponent(jLabel25)
@@ -271,7 +281,9 @@ public class TrangChuUser extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(tkSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHienThi2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
 
@@ -408,12 +420,12 @@ public class TrangChuUser extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        listSearch.clear();
         Boolean check = false;
         for (Sach sach : list) {
             if (sach.getMaS().equalsIgnoreCase(txtSearch.getText())) {
                 listSearch.add(sach);
                 showResultSearch();
-                listSearch.clear();
                 check = true;
                 txtSearch.setText("");
             }
@@ -425,10 +437,25 @@ public class TrangChuUser extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        listSearch.clear();
         showResultSearch();
         txtSearch.setText("");
         tkSach.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnHienThi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHienThi2ActionPerformed
+        // TODO add your handling code here:
+        indexEdit = tblSach1.getSelectedRow();
+        if (indexEdit == -1) {
+            JOptionPane.showMessageDialog(rootPane, "Bạn cần chọn 1 hàng để xem!!");
+        } else if (listSearch.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "Bảng trống!!");
+        } else {
+            setDetaiSach2(listSearch.get(indexEdit));
+            ctSach.setVisible(true);
+            ctSach.setLocationRelativeTo(this);
+        }
+    }//GEN-LAST:event_btnHienThi2ActionPerformed
 
     public void setDetaiSach2(Sach s) {
         txtMaS2.setEditable(false);
@@ -484,6 +511,7 @@ public class TrangChuUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDong;
     private javax.swing.JButton btnHienThi;
+    private javax.swing.JButton btnHienThi2;
     private javax.swing.JButton btnThoat;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JDialog ctSach;

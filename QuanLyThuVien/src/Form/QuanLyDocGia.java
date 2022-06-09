@@ -113,30 +113,24 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         return true;
     }
     public String validate1(String value) {
-        
-        Pattern patternDate = Pattern.compile("^[A-Za-z]{1,}$");
-        Matcher matcher = patternDate.matcher(value);
-        if(!matcher.find()) {
+        String regex = "^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]{1,}$";
+        if(!Pattern.matches(regex, value)) {
            return "Không được để trống thông tin và chỉ chứa kí tự A-Z";
         }
         return "";
     }
     public String validate2(String value) {
 
-        Pattern patternDate = Pattern.compile("^[0-9]{10,10}$");
-        Matcher matcher = patternDate.matcher(value);
-        if(!matcher.find()) {
+        String regex = "^[0-9]{10,10}$";
+        if(!Pattern.matches(regex, value)) {
             return "Số điện thoại chỉ chứa số và 10 kí tự";
         }
         return "";
     }
     public String validate0(String value) {
 
-        String regex = "MDG[0-9][0-9][0-9][0-9]";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(value);
-        
-        if(!matcher.find()) {
+        String regex = "MDG[0-9][0-9][0-9][0-9]";     
+        if(!Pattern.matches(regex, value)) {
             return "Mã độc giả phải có dạng MDGxxxx (Với x là số)";
         }
         return "";
@@ -998,7 +992,6 @@ public class QuanLyDocGia extends javax.swing.JFrame {
         jDialogTimKiem.setVisible(true);
         jDialogTimKiem.setLocationRelativeTo(this);
         tbDocGia.getSelectionModel().clearSelection();
-        tblDocGIa1.remove(0);
     }//GEN-LAST:event_btnTimKiemDGActionPerformed
     public void showResultSearch() {
         model1.setRowCount(0);

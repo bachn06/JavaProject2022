@@ -125,14 +125,40 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
         }
         return false;
     }
-    
-     public boolean checkExistMaDG(String input) {
+
+    public boolean checkExistMaDG(String input) {
         for (DocGia docGia : listDocGia) {
             if (docGia.getMaDG().equals(input)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public boolean checkSLSach(String input) {
+        if (checkExistMaS(txtMaS.getText().trim())) {
+            for (Sach sach : listSach) {
+                if (sach.getsL() > Integer.parseInt(input)) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+      public boolean checkSLSachSua(String input) {
+        if (checkExistMaS(txtMaS1.getText().trim())) {
+            for (Sach sach : listSach) {
+                if (sach.getsL() > Integer.parseInt(input)) {
+                    return true;
+                }
+            }
+            return false;
+        } else {
+            return true;
+        }
     }
 
     private Phieu getDetailPhieu() {
@@ -145,7 +171,8 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
                 && checkSL(txtSL.getText())
                 && checkGia(txtGia.getText())
                 && checkExistMaS(txtMaS.getText().trim())
-                && checkExistMaDG(txtMaDG.getText().trim())) {
+                && checkExistMaDG(txtMaDG.getText().trim())
+                && checkSLSach(txtSL.getText().trim())) {
             p.setMaP(txtMaP.getText().trim());
             p.setMaS(txtMaS.getText().trim());
             p.setMaDG(txtMaDG.getText().trim());
@@ -168,9 +195,10 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
             } else {
                 validNgayMuon.setText("");
             }
-            if (!checkDate(txtNgayTra.getText()) || txtNgayTra.getText().compareTo(txtNgayMuon.getText()) < 0) {
-                validNgayTra.setText("Ngày trả có dạng dd/mm/yyyy "
-                        + "và lớn hơn ngày mượn");
+            if (!checkDate(txtNgayTra.getText())) {
+                validNgayTra.setText("Ngày trả có dạng dd/mm/yyyy ");
+            } else if (txtNgayTra.getText().compareTo(txtNgayMuon.getText()) < 0) {
+                validNgayTra.setText("Ngày trả phải lớn hơn ngày mượn");
             } else {
                 validNgayTra.setText("");
             }
@@ -195,6 +223,8 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
             }
             if (!checkSL(txtSL.getText().trim())) {
                 validSL.setText("Số lượng là số nguyên dương");
+            } else if (!checkSLSach(txtSL.getText().trim())) {
+                validSL.setText("Số lượng phải nhó hơn số lượng trong kho");
             } else {
                 validSL.setText("");
             }
@@ -218,7 +248,8 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
                 && checkGia(txtGia1.getText())
                 && txtNgayTra1.getText().compareTo(txtNgayMuon1.getText()) >= 0
                 && checkExistMaS(txtMaS1.getText().trim())
-                && checkExistMaDG(txtMaDG1.getText().trim())) {
+                && checkExistMaDG(txtMaDG1.getText().trim())
+                && checkSLSachSua(txtSL1.getText().trim())) {
             p.setMaP(txtMaP1.getText().trim());
             p.setMaS(txtMaS1.getText().trim());
             p.setMaDG(txtMaDG1.getText().trim());
@@ -241,9 +272,10 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
             } else {
                 validNgayMuon1.setText("");
             }
-            if (!checkDate(txtNgayTra1.getText()) || txtNgayTra1.getText().compareTo(txtNgayMuon1.getText()) < 0) {
-                validNgayTra1.setText("Ngày trả có dạng dd/mm/yyyy "
-                        + "và lớn hơn ngày mượn");
+            if (!checkDate(txtNgayTra1.getText())) {
+                validNgayTra1.setText("Ngày trả có dạng dd/mm/yyyy ");
+            } else if (txtNgayTra1.getText().compareTo(txtNgayMuon1.getText()) < 0) {
+                validNgayTra1.setText("Ngày trả phải lớn hơn ngày mượn");
             } else {
                 validNgayTra1.setText("");
             }
@@ -268,6 +300,8 @@ public final class QuanLyPhieu extends javax.swing.JFrame {
             }
             if (!checkSL(txtSL1.getText().trim())) {
                 validSL1.setText("Số lượng là số nguyên dương");
+            } else if(!checkSLSachSua(txtSL1.getText().trim())) {
+               validSL1.setText("Số lượng phải nhó hơn số lượng trong kho");
             } else {
                 validSL1.setText("");
             }

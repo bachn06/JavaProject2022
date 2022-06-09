@@ -28,7 +28,7 @@ public class QuanLySach extends javax.swing.JFrame {
     DefaultTableModel model;
     DefaultTableModel model1;
     public int indexEdit;
-    public int indexSearchEdit;
+    public int indexSearchEdit = -1;
 
     public QuanLySach() {
         initComponents();
@@ -136,50 +136,52 @@ public class QuanLySach extends javax.swing.JFrame {
 
         addForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         addForm.setModal(true);
-        addForm.setSize(new java.awt.Dimension(510, 600));
+        addForm.setSize(new java.awt.Dimension(531, 639));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel3.setText("THÊM SÁCH");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("Mã sách :");
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setText("Tên thể loại :");
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel6.setText("Tên sách :");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel7.setText("Tên tác giả :");
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel8.setText("Số lượng :");
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("Giá :");
 
-        btnThem.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnThem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnThem.setText("Thêm");
+        btnThem.setMaximumSize(new java.awt.Dimension(131, 69));
+        btnThem.setPreferredSize(new java.awt.Dimension(133, 69));
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThemActionPerformed(evt);
             }
         });
 
-        txtMaS.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtMaS.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        txtTenS.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTenS.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        txtTenTL.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTenTL.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        txtTenTG.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTenTG.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        txtSL.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtSL.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        txtGiaBan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtGiaBan.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        btnCLear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnCLear.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnCLear.setText("Xóa dữ liệu");
         btnCLear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,23 +193,23 @@ public class QuanLySach extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("Nhập thông tin cho cuốn sách");
 
-        errMaS.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errMaS.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errMaS.setForeground(new java.awt.Color(255, 0, 0));
         errMaS.setToolTipText("");
 
-        errTenS.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errTenS.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errTenS.setForeground(new java.awt.Color(255, 0, 0));
 
-        errTenTL.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errTenTL.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errTenTL.setForeground(new java.awt.Color(255, 0, 0));
 
-        errTenTG.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errTenTG.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errTenTG.setForeground(new java.awt.Color(255, 0, 0));
 
-        errSL.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errSL.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errSL.setForeground(new java.awt.Color(255, 0, 0));
 
-        errGia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errGia.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errGia.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout addFormLayout = new javax.swing.GroupLayout(addForm.getContentPane());
@@ -215,123 +217,123 @@ public class QuanLySach extends javax.swing.JFrame {
         addFormLayout.setHorizontalGroup(
             addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addFormLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
                 .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(addFormLayout.createSequentialGroup()
-                        .addGap(49, 49, 49)
                         .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
+                        .addGap(46, 46, 46)
+                        .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTenS, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMaS, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(errMaS)
+                            .addComponent(jLabel3)
                             .addGroup(addFormLayout.createSequentialGroup()
-                                .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel6))
-                                .addGap(46, 46, 46)
-                                .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTenS, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtMaS, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(errMaS)))
-                            .addGroup(addFormLayout.createSequentialGroup()
-                                .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(addFormLayout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel7)
-                                            .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTenTG, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTenTL, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSL, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(errTenS)
-                                    .addComponent(errTenTL)
-                                    .addComponent(errTenTG)
-                                    .addComponent(errSL)
-                                    .addComponent(errGia)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addFormLayout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(btnCLear))))
-                    .addGroup(addFormLayout.createSequentialGroup()
-                        .addGap(184, 184, 184)
-                        .addComponent(jLabel3)))
-                .addContainerGap(53, Short.MAX_VALUE))
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel2))))
+                    .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addFormLayout.createSequentialGroup()
+                            .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnCLear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, addFormLayout.createSequentialGroup()
+                            .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(addFormLayout.createSequentialGroup()
+                                    .addGap(1, 1, 1)
+                                    .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel9)
+                                        .addComponent(jLabel8)
+                                        .addComponent(jLabel7)))
+                                .addComponent(jLabel5))
+                            .addGap(29, 29, 29)
+                            .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtTenTG, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtTenTL, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSL, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(errTenS)
+                                .addComponent(errTenTL)
+                                .addComponent(errTenTG)
+                                .addComponent(errSL)
+                                .addComponent(errGia)))))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         addFormLayout.setVerticalGroup(
             addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addFormLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtMaS, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errMaS)
+                .addComponent(errMaS, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtTenS, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errTenS)
+                .addComponent(errTenS, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtTenTL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errTenTL)
+                .addComponent(errTenTL, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(txtTenTG, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errTenTG)
+                .addComponent(errTenTG, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(txtSL, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addComponent(errSL)
+                .addComponent(errSL, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
                 .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(txtGiaBan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errGia)
+                .addComponent(errGia, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addGroup(addFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCLear, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34))
+                    .addComponent(btnCLear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnThem, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(50, 50, 50))
         );
 
-        fixForm.setSize(new java.awt.Dimension(460, 600));
+        fixForm.setPreferredSize(new java.awt.Dimension(548, 654));
+        fixForm.setSize(new java.awt.Dimension(548, 654));
 
-        txtTenTG1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTenTG1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel10.setText("Mã sách :");
 
-        txtSL1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtSL1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel11.setText("Tên thể loại :");
 
-        txtGiaBan1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtGiaBan1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel12.setText("Tên sách :");
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel13.setText("Tên tác giả :");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel14.setText("Số lượng :");
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel15.setText("Giá :");
 
         btnCapNhat.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -342,32 +344,32 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        txtMaS1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtMaS1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        txtTenS1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTenS1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        txtTenTL1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtTenTL1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel16.setText("SỬA SÁCH");
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(153, 153, 153));
         jLabel26.setText("Nhập thông tin cần sửa cho cuốn sách");
 
-        errFTenS.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errFTenS.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errFTenS.setForeground(new java.awt.Color(255, 0, 51));
 
-        errFTenTL.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errFTenTL.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errFTenTL.setForeground(new java.awt.Color(255, 0, 51));
 
-        errFTenTG.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errFTenTG.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errFTenTG.setForeground(new java.awt.Color(255, 0, 51));
 
-        errFSL.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errFSL.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errFSL.setForeground(new java.awt.Color(255, 0, 51));
 
-        errFGia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        errFGia.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         errFGia.setForeground(new java.awt.Color(255, 0, 51));
 
         javax.swing.GroupLayout fixFormLayout = new javax.swing.GroupLayout(fixForm.getContentPane());
@@ -375,116 +377,111 @@ public class QuanLySach extends javax.swing.JFrame {
         fixFormLayout.setHorizontalGroup(
             fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fixFormLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(60, 60, 60)
                 .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fixFormLayout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel26)
-                            .addComponent(txtMaS1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(fixFormLayout.createSequentialGroup()
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(errFTenS)
-                            .addComponent(txtTenS1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(fixFormLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(18, 18, 18)
-                        .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(fixFormLayout.createSequentialGroup()
-                                .addComponent(errFTenTL)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtTenTL1)))
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(406, Short.MAX_VALUE))
                     .addGroup(fixFormLayout.createSequentialGroup()
                         .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
                             .addComponent(jLabel14)
-                            .addComponent(jLabel15))
-                        .addGap(23, 23, 23)
-                        .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtGiaBan1)
-                            .addComponent(txtSL1)
-                            .addComponent(txtTenTG1)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel11)
                             .addGroup(fixFormLayout.createSequentialGroup()
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)
                                 .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(errFGia)
+                                    .addComponent(txtMaS1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTenS1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTenTL1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTenTG1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSL1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtGiaBan1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(errFTenS)
+                                    .addComponent(errFTenTL)
+                                    .addComponent(errFTenTG)
                                     .addComponent(errFSL)
-                                    .addComponent(errFTenTG))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(38, 38, 38))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fixFormLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(183, 183, 183))
+                                    .addComponent(errFGia))))
+                        .addContainerGap(60, Short.MAX_VALUE))))
             .addGroup(fixFormLayout.createSequentialGroup()
-                .addGap(169, 169, 169)
-                .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fixFormLayout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(jLabel16))
+                    .addGroup(fixFormLayout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(jLabel26)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(fixFormLayout.createSequentialGroup()
+                .addGap(215, 215, 215)
+                .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         fixFormLayout.setVerticalGroup(
             fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fixFormLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel26)
-                .addGap(25, 25, 25)
+                .addGap(30, 30, 30)
                 .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(txtMaS1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addGap(41, 41, 41)
+                    .addComponent(txtMaS1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(txtTenS1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errFTenS)
-                .addGap(19, 19, 19)
+                    .addComponent(txtTenS1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addComponent(errFTenS, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(txtTenTL1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(errFTenTL)
-                .addGap(14, 14, 14)
+                    .addComponent(txtTenTL1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addComponent(errFTenTL, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(txtTenTG1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(txtTenTG1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errFTenTG)
+                .addComponent(errFTenTG, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
-                    .addComponent(txtSL1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(txtSL1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errFSL)
+                .addComponent(errFSL, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addGroup(fixFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(txtGiaBan1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                    .addComponent(txtGiaBan1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(errFGia)
-                .addGap(20, 20, 20)
+                .addComponent(errFGia, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(btnCapNhat, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(30, 30, 30))
         );
 
-        detailForm.setSize(new java.awt.Dimension(520, 525));
+        detailForm.setBackground(new java.awt.Color(255, 255, 255));
+        detailForm.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        detailForm.setResizable(false);
+        detailForm.setSize(new java.awt.Dimension(520, 550));
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel18.setText("Tên tác giả :");
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel23.setText("Tên thể loại :");
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel19.setText("Số lượng :");
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel20.setText("Giá :");
 
-        btnDong.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnDong.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDong.setText("Đóng");
         btnDong.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -494,59 +491,51 @@ public class QuanLySach extends javax.swing.JFrame {
 
         txtMaS2.setEditable(false);
         txtMaS2.setBackground(new java.awt.Color(255, 255, 255));
-        txtMaS2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtMaS2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         txtTenTG2.setEditable(false);
         txtTenTG2.setBackground(new java.awt.Color(255, 255, 255));
-        txtTenTG2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTenTG2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         txtTenS2.setEditable(false);
         txtTenS2.setBackground(new java.awt.Color(255, 255, 255));
-        txtTenS2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTenS2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         txtTenS2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTenS2ActionPerformed(evt);
             }
         });
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel21.setText("Mã sách :");
 
         txtTenTL2.setEditable(false);
         txtTenTL2.setBackground(new java.awt.Color(255, 255, 255));
-        txtTenTL2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTenTL2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         txtGiaBan2.setEditable(false);
         txtGiaBan2.setBackground(new java.awt.Color(255, 255, 255));
-        txtGiaBan2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtGiaBan2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         txtSL2.setEditable(false);
         txtSL2.setBackground(new java.awt.Color(255, 255, 255));
-        txtSL2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtSL2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel17.setText("Tên sách :");
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel22.setText("Chi tiết sách");
 
         javax.swing.GroupLayout detailFormLayout = new javax.swing.GroupLayout(detailForm.getContentPane());
         detailForm.getContentPane().setLayout(detailFormLayout);
         detailFormLayout.setHorizontalGroup(
             detailFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailFormLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel22)
-                .addGap(204, 204, 204))
             .addGroup(detailFormLayout.createSequentialGroup()
                 .addGroup(detailFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(detailFormLayout.createSequentialGroup()
-                        .addGap(50, 50, 50)
+                        .addGap(60, 60, 60)
                         .addGroup(detailFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailFormLayout.createSequentialGroup()
-                                .addComponent(jLabel21)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtMaS2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(detailFormLayout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
@@ -566,22 +555,28 @@ public class QuanLySach extends javax.swing.JFrame {
                             .addGroup(detailFormLayout.createSequentialGroup()
                                 .addComponent(jLabel18)
                                 .addGap(22, 22, 22)
-                                .addComponent(txtTenTG2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtTenTG2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailFormLayout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(detailFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel22)
+                                    .addComponent(txtMaS2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(detailFormLayout.createSequentialGroup()
                         .addGap(205, 205, 205)
                         .addComponent(btnDong, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addGap(60, 60, 60))
         );
         detailFormLayout.setVerticalGroup(
             detailFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(detailFormLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(20, 20, 20)
                 .addComponent(jLabel22)
                 .addGap(32, 32, 32)
                 .addGroup(detailFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(txtMaS2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
                 .addGroup(detailFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(txtTenS2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -603,21 +598,21 @@ public class QuanLySach extends javax.swing.JFrame {
                     .addComponent(txtGiaBan2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(btnDong, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addGap(30, 30, 30))
         );
 
-        searchForm.setSize(new java.awt.Dimension(530, 400));
+        searchForm.setSize(new java.awt.Dimension(773, 439));
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 32)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(51, 51, 51));
         jLabel24.setText("Tìm kiếm sách");
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel25.setText("Nhập mã sách :");
 
         txtSearch.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Tìm kiếm");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -625,7 +620,7 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("Hủy bỏ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -633,7 +628,7 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        tblSach1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tblSach1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblSach1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -652,7 +647,7 @@ public class QuanLySach extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tblSach1);
 
-        btnSearchSua.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSearchSua.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnSearchSua.setText("Sửa");
         btnSearchSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -665,43 +660,38 @@ public class QuanLySach extends javax.swing.JFrame {
         searchFormLayout.setHorizontalGroup(
             searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchFormLayout.createSequentialGroup()
+                .addGap(60, 60, 60)
                 .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(searchFormLayout.createSequentialGroup()
-                        .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(searchFormLayout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(jLabel25)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1))
-                            .addGroup(searchFormLayout.createSequentialGroup()
-                                .addGap(136, 136, 136)
-                                .addComponent(jLabel24)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(btnSearchSua, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(searchFormLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, searchFormLayout.createSequentialGroup()
-                                .addComponent(btnSearchSua, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
+                        .addComponent(jLabel25)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
+                .addGap(60, 60, 60))
+            .addGroup(searchFormLayout.createSequentialGroup()
+                .addGap(276, 276, 276)
+                .addComponent(jLabel24)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         searchFormLayout.setVerticalGroup(
             searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(searchFormLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addComponent(jLabel24)
-                .addGap(54, 54, 54)
+                .addGap(43, 43, 43)
                 .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(searchFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchSua, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -710,10 +700,10 @@ public class QuanLySach extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setText("QUẢN LÝ SÁCH");
 
-        tblSach.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tblSach.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblSach.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -732,7 +722,7 @@ public class QuanLySach extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblSach);
 
-        btnHienThi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnHienThi.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnHienThi.setText("Hiển thị");
         btnHienThi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -740,7 +730,7 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        txtThem.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        txtThem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         txtThem.setText("Thêm");
         txtThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -748,7 +738,7 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        btnSua.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSua.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnSua.setText("Sửa");
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -756,7 +746,7 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        btnXoa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnXoa.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnXoa.setText("Xóa");
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -764,7 +754,7 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        btnTimKiem.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnTimKiem.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnTimKiem.setText("Tìm kiếm");
         btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -772,7 +762,7 @@ public class QuanLySach extends javax.swing.JFrame {
             }
         });
 
-        btnThoat.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnThoat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnThoat.setText("Thoát");
         btnThoat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -785,43 +775,43 @@ public class QuanLySach extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(362, 362, 362)
+                        .addComponent(jLabel1)
+                        .addGap(0, 491, Short.MAX_VALUE))
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnHienThi, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(txtThem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
-                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(378, 378, 378)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnHienThi, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(txtThem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                        .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(27, 27, 27)
                 .addComponent(jLabel1)
-                .addGap(42, 42, 42)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnHienThi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtThem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(131, Short.MAX_VALUE))
+                    .addComponent(btnHienThi, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSua, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtThem, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37))
         );
 
         pack();
@@ -883,10 +873,10 @@ public class QuanLySach extends javax.swing.JFrame {
         boolean isAdd = true;
         if (checkmhd()) {
             Sach s = new Sach();
-            if (!txtMaS.getText().isEmpty()) {
+            if (!txtMaS.getText().isEmpty() && txtMaS.getText().matches("MS[0-9][0-9][0-9][0-9]")) {
                 s.setMaS(txtMaS.getText().trim());
             } else {
-                errMaS.setText("Mã sách không được để trống!");
+                errMaS.setText("Mã sách không được để trống và định dạng MSxxxx!");
                 isAdd = false;
             }
             if (!txtTenS.getText().isEmpty()) {
@@ -972,11 +962,27 @@ public class QuanLySach extends javax.swing.JFrame {
             isEdit = false;
         }
         if (isEdit) {
-            list.set(indexEdit, s);            
-            file.write(list);
-            showResult();
-            fixForm.dispose();
-            searchForm.setVisible(false);
+            if (indexSearchEdit != -1) {
+                int indexItem = 0;
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i).getMaS().equals(listSearch.get(indexSearchEdit).getMaS())) {
+                        indexItem = i;
+                    }
+                }
+                list.set(indexItem, s);
+                listSearch.set(indexSearchEdit, s);
+                file.write(list);
+                showResult();
+                showResultSearch();
+                cancelValues();
+                fixForm.dispose();
+            } else {
+                list.set(indexEdit, s);
+                file.write(list);
+                showResult();
+                cancelValues();
+                fixForm.dispose();
+            }
         }
     }//GEN-LAST:event_btnCapNhatActionPerformed
 
@@ -1042,7 +1048,7 @@ public class QuanLySach extends javax.swing.JFrame {
     private void tblSach1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblSach1MouseClicked
         // TODO add your handling code here:
         indexSearchEdit = tblSach1.getSelectedRow();
-        setDetaiSach(listSearch.get(indexSearchEdit));
+        setEditData(listSearch.get(indexSearchEdit));
     }//GEN-LAST:event_tblSach1MouseClicked
 
     private void btnSearchSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchSuaActionPerformed
@@ -1083,12 +1089,12 @@ public class QuanLySach extends javax.swing.JFrame {
     }
 
     public void setEditData(Sach s) {
-        txtMaS.setText(s.getMaS());
-        txtTenS.setText(s.getTenS());
-        txtTenTL.setText(s.getTenTL());
-        txtTenTG.setText(s.getTenTG() + "");
-        txtSL.setText(s.getsL() + "");
-        txtGiaBan.setText(s.getGia() + "");
+        txtMaS1.setText(s.getMaS());
+        txtTenS1.setText(s.getTenS());
+        txtTenTL1.setText(s.getTenTL());
+        txtTenTG1.setText(s.getTenTG() + "");
+        txtSL1.setText(s.getsL() + "");
+        txtGiaBan1.setText(s.getGia() + "");
     }
 
     public void cancelValues() {

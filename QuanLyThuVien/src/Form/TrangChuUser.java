@@ -25,6 +25,7 @@ public class TrangChuUser extends javax.swing.JFrame {
     DefaultTableModel model;
     DefaultTableModel model1;
     public int indexEdit;
+
     /**
      * Creates new form TrangChuUser
      */
@@ -35,8 +36,7 @@ public class TrangChuUser extends javax.swing.JFrame {
         model1 = (DefaultTableModel) tblSach1.getModel();
         showResult();
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,7 +67,6 @@ public class TrangChuUser extends javax.swing.JFrame {
         txtSearch = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        btnHienThi1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblSach1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
@@ -170,7 +169,7 @@ public class TrangChuUser extends javax.swing.JFrame {
                 .addGroup(ctSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
                     .addComponent(txtMaS2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(ctSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
                     .addComponent(txtTenS2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -190,9 +189,9 @@ public class TrangChuUser extends javax.swing.JFrame {
                 .addGroup(ctSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(txtGiaBan2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(29, 29, 29)
                 .addComponent(btnDong, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addGap(39, 39, 39))
         );
 
         tkSach.setSize(new java.awt.Dimension(588, 513));
@@ -222,14 +221,6 @@ public class TrangChuUser extends javax.swing.JFrame {
             }
         });
 
-        btnHienThi1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnHienThi1.setText("Hiển thị");
-        btnHienThi1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHienThi1ActionPerformed(evt);
-            }
-        });
-
         tblSach1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         tblSach1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -249,16 +240,11 @@ public class TrangChuUser extends javax.swing.JFrame {
         tkSachLayout.setHorizontalGroup(
             tkSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tkSachLayout.createSequentialGroup()
-                .addGap(165, 165, 165)
-                .addComponent(jLabel24)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(tkSachLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(tkSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
                     .addGroup(tkSachLayout.createSequentialGroup()
-                        .addComponent(btnHienThi1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(tkSachLayout.createSequentialGroup()
                         .addComponent(jLabel25)
@@ -267,13 +253,17 @@ public class TrangChuUser extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)))
                 .addContainerGap())
+            .addGroup(tkSachLayout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addComponent(jLabel24)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tkSachLayout.setVerticalGroup(
             tkSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tkSachLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(21, 21, 21)
                 .addComponent(jLabel24)
-                .addGap(54, 54, 54)
+                .addGap(46, 46, 46)
                 .addGroup(tkSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,10 +271,8 @@ public class TrangChuUser extends javax.swing.JFrame {
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addGroup(tkSachLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnHienThi1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -377,6 +365,7 @@ public class TrangChuUser extends javax.swing.JFrame {
             });
         }
     }
+
     public void showResultSearch() {
         model1.setRowCount(0);
         for (Sach s : listSearch) {
@@ -385,7 +374,7 @@ public class TrangChuUser extends javax.swing.JFrame {
             });
         }
     }
-    
+
     private void btnHienThiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHienThiActionPerformed
         // TODO add your handling code here:
         indexEdit = tblSach.getSelectedRow();
@@ -441,28 +430,14 @@ public class TrangChuUser extends javax.swing.JFrame {
         tkSach.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void btnHienThi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHienThi1ActionPerformed
-        // TODO add your handling code here:
-        indexEdit = tblSach1.getSelectedRow();
-        if (indexEdit == -1) {
-            JOptionPane.showMessageDialog(rootPane, "Bạn cần chọn 1 hàng để xem!!");
-        } else if (list.isEmpty()) {
-            JOptionPane.showMessageDialog(rootPane, "Bảng trống!!");
-        } else {
-            setDetaiSach2(list.get(indexEdit));
-            ctSach.setVisible(true);
-            ctSach.setLocationRelativeTo(this);
-        }
-    }//GEN-LAST:event_btnHienThi1ActionPerformed
-
-    public void setDetaiSach2(Sach s){
+    public void setDetaiSach2(Sach s) {
         txtMaS2.setEditable(false);
         txtTenS2.setEnabled(false);
         txtTenTL2.setEnabled(false);
         txtTenTG2.setEnabled(false);
         txtSL2.setEnabled(false);
         txtGiaBan2.setEnabled(false);
-        
+
         txtMaS2.setText(s.getMaS());
         txtTenS2.setText(s.getTenS());
         txtTenTL2.setText(s.getTenTL());
@@ -470,8 +445,7 @@ public class TrangChuUser extends javax.swing.JFrame {
         txtSL2.setText(s.getsL() + "");
         txtGiaBan2.setText(s.getGia() + "");
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */
@@ -510,7 +484,6 @@ public class TrangChuUser extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDong;
     private javax.swing.JButton btnHienThi;
-    private javax.swing.JButton btnHienThi1;
     private javax.swing.JButton btnThoat;
     private javax.swing.JButton btnTimKiem;
     private javax.swing.JDialog ctSach;
